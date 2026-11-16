@@ -1,0 +1,1938 @@
+{
+  "schemaVersion": 1,
+  "product": "Tetorica YM2149 ST Synth",
+  "productId": "tetorica-ym2149-st-synth",
+  "version": "tauri-20261117-r2",
+  "builder": {
+    "name": "source-copy",
+    "minify": false,
+    "bundle": false,
+    "dependencyAnalyzer": {
+      "name": "esbuild",
+      "version": "0.28.2"
+    }
+  },
+  "bundles": [
+    {
+      "path": "synth-ym2149-st/synth.js",
+      "sourcePath": "docs/synth-ym2149-st/synth.js",
+      "bytes": 20701,
+      "sha256": "f085767b92074fc2fedb5ffc0f083bd3c7d8175c4e91483c08f2516ca9db7c56",
+      "localImports": [
+        "../synth-spu/spu_synth_visualizer.js",
+        "../synth/synth_keyboard.js",
+        "../synth/synth_menu.js",
+        "./audio.js",
+        "./code_host.js?v=ym-sample-1",
+        "./controls.js",
+        "./preset.js",
+        "./reference_source.js",
+        "./song_live.js",
+        "./song_panel.js",
+        "./song_player.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/atari_worker.js",
+      "sourcePath": "docs/synth-ym2149-st/atari_worker.js",
+      "bytes": 5241,
+      "sha256": "126e401c3d8396b86748bdc5063ec3f3984561ec4e8b87c261de64170f5f77d3",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_ay8910_worklet.js",
+      "sourcePath": "docs/js/playground_ay8910_worklet.js",
+      "bytes": 8422,
+      "sha256": "5fddb9718645e2ade616db88565af6c3d9a122caee8f83a5259b19abd839bb8c",
+      "localImports": [
+        "../generated/ay8910_wasm.js",
+        "./ay8910.js?v=audio-stability-2",
+        "./ay8910_timed_processor.js?v=pokey-mode-1",
+        "./playground_ay8910_inspector.js?v=ps1-deferred-release-1",
+        "./playground_chip_clock.js?v=pokey-prepare-1",
+        "./playground_chip_inspector_state.js?v=rf5c164-notes-1",
+        "./playground_performance_processor.js?v=scsp-fm-1"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/synth.css",
+      "sourcePath": "docs/synth-ym2149-st/synth.css",
+      "bytes": 13550,
+      "sha256": "b8bd8a42d9bcbb290335dbcbc2ba00739b410b15686623a78420eaa0f12da0eb",
+      "localImports": [
+        "../synth-spu/synth.css"
+      ]
+    },
+    {
+      "path": "js/native-fx-worklet.js",
+      "sourcePath": "docs/js/native-fx-worklet.js",
+      "bytes": 8783,
+      "sha256": "d490b7197cdc139314479ad5048725d62e23d12664b126b12dfebb209ef3c4ac",
+      "localImports": [
+        "./native_fx_engine.js?v=audio-stability-2",
+        "./native_fx_graph.js",
+        "./playground_performance_queue.js"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "path": "js/ay8910.js",
+      "sourcePath": "docs/js/ay8910.js",
+      "bytes": 6264,
+      "sha256": "f405e5dccb8142d5fae938ba1e720ce2fd821a413c179ff6a5e7e5dff8bbe2de",
+      "localImports": []
+    },
+    {
+      "path": "js/ay8910_operations.js",
+      "sourcePath": "docs/js/ay8910_operations.js",
+      "bytes": 10825,
+      "sha256": "ff50a169f232caac4f7c967a92c18bfc1b5acd5037def91b5732c765013a2182",
+      "localImports": [
+        "./ay8910synth.js?v=pokey-mode-1"
+      ]
+    },
+    {
+      "path": "js/ay8910_timed_client.js",
+      "sourcePath": "docs/js/ay8910_timed_client.js",
+      "bytes": 9489,
+      "sha256": "66ed3f126ac1ef8ae70af395f693545e39bd5249dfb5a81beb53af133482a641",
+      "localImports": [
+        "./ay8910.js?v=audio-stability-2",
+        "./ay8910_operations.js?v=pokey-mode-1",
+        "./ay8910_timed_state.js?v=pokey-mode-1"
+      ]
+    },
+    {
+      "path": "js/ay8910_timed_processor.js",
+      "sourcePath": "docs/js/ay8910_timed_processor.js",
+      "bytes": 8240,
+      "sha256": "caa0be11cd03fe85d213b92f04824993a4eebe1054eeacc72bd96d9e03060f42",
+      "localImports": [
+        "./ay8910_operations.js?v=pokey-mode-1",
+        "./ay8910_timed_state.js?v=pokey-mode-1"
+      ]
+    },
+    {
+      "path": "js/ay8910_timed_state.js",
+      "sourcePath": "docs/js/ay8910_timed_state.js",
+      "bytes": 2686,
+      "sha256": "615120d31a3c4020d106bc955899b83a463d3e551c34e98631f2237d3b99e198",
+      "localImports": [
+        "./ay8910.js?v=audio-stability-2",
+        "./ay8910_operations.js?v=pokey-mode-1"
+      ]
+    },
+    {
+      "path": "js/ay8910audioengine.js",
+      "sourcePath": "docs/js/ay8910audioengine.js",
+      "bytes": 5469,
+      "sha256": "202020634fe956c486eb42333db0dcfee4f21c2313f59600097d35f15ff8406e",
+      "localImports": [
+        "./ay8910.js?v=audio-stability-2"
+      ]
+    },
+    {
+      "path": "js/ay8910synth.js",
+      "sourcePath": "docs/js/ay8910synth.js",
+      "bytes": 12974,
+      "sha256": "4eb50108d27aa364344cbab8190f63375430fb1477cc98091a0b2c10a8bb2cb6",
+      "localImports": [
+        "./ay8910.js?v=audio-stability-2",
+        "./chip_worklet_transport.js?v=pokey-mode-1",
+        "./soundchip_pitch.js"
+      ]
+    },
+    {
+      "path": "js/chip_worklet_transport.js",
+      "sourcePath": "docs/js/chip_worklet_transport.js",
+      "bytes": 15514,
+      "sha256": "4adcc8a58773fb970700a9846e628fcfea20e5d16b43778ea80d0e083b630a7b",
+      "localImports": []
+    },
+    {
+      "path": "js/custom_fx.js",
+      "sourcePath": "docs/js/custom_fx.js",
+      "bytes": 5764,
+      "sha256": "f719e32f063bdbdb4d7cb9bb7aff1087dde2152ade7449b2819f2d3a6cc4424e",
+      "localImports": []
+    },
+    {
+      "path": "js/megasynth-fm-presets.js",
+      "sourcePath": "docs/js/megasynth-fm-presets.js",
+      "bytes": 6954,
+      "sha256": "daf3c42d3d6b1777d5729073eed9edf4d96a78d55e22fedfad394137d41bb06c",
+      "localImports": []
+    },
+    {
+      "path": "js/native-fx-worklet.js",
+      "sourcePath": "docs/js/native-fx-worklet.js",
+      "bytes": 8783,
+      "sha256": "d490b7197cdc139314479ad5048725d62e23d12664b126b12dfebb209ef3c4ac",
+      "localImports": [
+        "./native_fx_engine.js?v=audio-stability-2",
+        "./native_fx_graph.js",
+        "./playground_performance_queue.js"
+      ]
+    },
+    {
+      "path": "js/native_fx.js",
+      "sourcePath": "docs/js/native_fx.js",
+      "bytes": 7922,
+      "sha256": "42cf0829acbc3cf779a5fc2005a6c1ac1ecfee92075f468da968c59b0fe4e27f",
+      "localImports": []
+    },
+    {
+      "path": "js/native_fx_engine.js",
+      "sourcePath": "docs/js/native_fx_engine.js",
+      "bytes": 7061,
+      "sha256": "8f9ba9ff857a34dc46b2646d77838e79fd48cdf4d2d4f3caf7176091a575967f",
+      "localImports": [
+        "./custom_fx.js?v=audio-stability-2",
+        "./native_fx.js",
+        "./native_fx_graph.js",
+        "./native_sample_processor.js"
+      ]
+    },
+    {
+      "path": "js/native_fx_graph.js",
+      "sourcePath": "docs/js/native_fx_graph.js",
+      "bytes": 3612,
+      "sha256": "fc9345f3a1c499b6fb5d2a893ed2c31c92394397e1a0ccaa343fc7b722e64ccf",
+      "localImports": []
+    },
+    {
+      "path": "js/native_fx_rack.js",
+      "sourcePath": "docs/js/native_fx_rack.js",
+      "bytes": 2128,
+      "sha256": "92e57a539409d7139e4820d275fedff5e9862765f34a5cb3b3c07c67608429a5",
+      "localImports": [
+        "./native_fx.js?v=prepared-fx-rerun-2",
+        "./native_noise.js",
+        "./native_sample.js?v=audio-stability-2"
+      ]
+    },
+    {
+      "path": "js/native_noise.js",
+      "sourcePath": "docs/js/native_noise.js",
+      "bytes": 4209,
+      "sha256": "c0ce2bdb16f1aed62e6b83f1b27c8e37b25fa2ee5035f0d332f59cd21ae3996f",
+      "localImports": []
+    },
+    {
+      "path": "js/native_sample.js",
+      "sourcePath": "docs/js/native_sample.js",
+      "bytes": 3645,
+      "sha256": "c281830126e7197cdec59cfdd8c7c1cd51ce26d53afe1887399e1aa81e5b07e0",
+      "localImports": []
+    },
+    {
+      "path": "js/native_sample_processor.js",
+      "sourcePath": "docs/js/native_sample_processor.js",
+      "bytes": 4443,
+      "sha256": "a1ee1cfa04b11bf4c66d8012e4a22d8a526a7a006333e6fe4e4540af3f1c8f27",
+      "localImports": []
+    },
+    {
+      "path": "js/opn_fm_vgm.js",
+      "sourcePath": "docs/js/opn_fm_vgm.js",
+      "bytes": 4213,
+      "sha256": "d9535987aa4284e817172b1cff3cfbdbe893cca70b6cebfe4c09f616802bbc1c",
+      "localImports": []
+    },
+    {
+      "path": "js/pitch.js",
+      "sourcePath": "docs/js/pitch.js",
+      "bytes": 1888,
+      "sha256": "fd20f1f31c6c02fcf48213ed51209185a7addc8c526c867e7214563d6825cf42",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_async_tasks.js",
+      "sourcePath": "docs/js/playground_async_tasks.js",
+      "bytes": 2223,
+      "sha256": "17fa8f4c308b5cd758c5230f274da3a1b4a984f3752479ebfd0e184b9bda08fd",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_audio_endpoint.js",
+      "sourcePath": "docs/js/playground_audio_endpoint.js",
+      "bytes": 2002,
+      "sha256": "e8171d21fe682dd58d8d60c1cfb3f74b442586c254a8698d341fc4e1a7f1f9cd",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_ay8910.js",
+      "sourcePath": "docs/js/playground_ay8910.js",
+      "bytes": 4641,
+      "sha256": "75663381b3597c19994c799453e207c28adcfe22dd9e3346cdc7973f12c6cdb7",
+      "localImports": [
+        "./ay8910_timed_client.js?v=pokey-mode-1",
+        "./ay8910synth.js?v=pokey-mode-1",
+        "./playground_chip_clock.js?v=pokey-prepare-1"
+      ]
+    },
+    {
+      "path": "js/playground_ay8910_audio.js",
+      "sourcePath": "docs/js/playground_ay8910_audio.js",
+      "bytes": 4834,
+      "sha256": "726bd66320e4ce6da63a30d3472cf605064bb3fdbcb3c16733c2c1dc8c5f3bec",
+      "localImports": [
+        "./ay8910.js?v=audio-stability-2",
+        "./playground_audio_endpoint.js?v=y8950-adpcm-ui-1",
+        "./playground_chip_clock.js?v=pokey-prepare-1"
+      ]
+    },
+    {
+      "path": "js/playground_ay8910_inspector.js",
+      "sourcePath": "docs/js/playground_ay8910_inspector.js",
+      "bytes": 4593,
+      "sha256": "1b61401ef39ecf456bc5904c3747eda4ad9ba9791d4dcce2d57531ac4f0227cc",
+      "localImports": [
+        "./ay8910synth.js?v=pokey-mode-1",
+        "./playground_keyboard_channels.js?v=scsp-fm-1",
+        "./playground_performance_processor.js?v=scsp-fm-1"
+      ]
+    },
+    {
+      "path": "js/playground_ay8910_worklet.js",
+      "sourcePath": "docs/js/playground_ay8910_worklet.js",
+      "bytes": 8422,
+      "sha256": "5fddb9718645e2ade616db88565af6c3d9a122caee8f83a5259b19abd839bb8c",
+      "localImports": [
+        "../generated/ay8910_wasm.js",
+        "./ay8910.js?v=audio-stability-2",
+        "./ay8910_timed_processor.js?v=pokey-mode-1",
+        "./playground_ay8910_inspector.js?v=ps1-deferred-release-1",
+        "./playground_chip_clock.js?v=pokey-prepare-1",
+        "./playground_chip_inspector_state.js?v=rf5c164-notes-1",
+        "./playground_performance_processor.js?v=scsp-fm-1"
+      ]
+    },
+    {
+      "path": "js/playground_chip_clock.js",
+      "sourcePath": "docs/js/playground_chip_clock.js",
+      "bytes": 5244,
+      "sha256": "3802e15503424667324c4f6e067d5cae3ff4ad1b2adf81d780e8a47aa922ca2d",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_chip_inspector_state.js",
+      "sourcePath": "docs/js/playground_chip_inspector_state.js",
+      "bytes": 13142,
+      "sha256": "37a95d08cffa26d7ba850cdf11ef9af336ce664e27a48a49abbebae3fbb10f67",
+      "localImports": [
+        "./playground_chip_clock.js?v=pokey-prepare-1",
+        "./rf5c164synth.js?v=rf5c164-notes-1",
+        "./segapsg_api.js?v=audio-numeric-bindings-1"
+      ]
+    },
+    {
+      "path": "js/playground_clock.js",
+      "sourcePath": "docs/js/playground_clock.js",
+      "bytes": 19367,
+      "sha256": "e16aeee557adf6b1752bd48907e0671a979b2dd0c46a4afaa20befa9db7e885d",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_code_runtime.js",
+      "sourcePath": "docs/js/playground_code_runtime.js",
+      "bytes": 29787,
+      "sha256": "a2ee92eb46f170e48f9c24e87ce2b14156e6888c73f430707e773db8ba8350bf",
+      "localImports": [
+        "./megasynth-fm-presets.js",
+        "./native_fx.js",
+        "./playground_async_tasks.js",
+        "./playground_clock.js",
+        "./playground_execution.js",
+        "./playground_live.js",
+        "./playground_log.js?v=console-table-1",
+        "./playground_music.js",
+        "./ps1_vab.js",
+        "./soundchip_pitch.js"
+      ]
+    },
+    {
+      "path": "js/playground_duration.js",
+      "sourcePath": "docs/js/playground_duration.js",
+      "bytes": 2009,
+      "sha256": "b6f1664b84569fd627d4d4e82a6c0b500edf142a3d9ced13f33ab5dc5606bfb1",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_execution.js",
+      "sourcePath": "docs/js/playground_execution.js",
+      "bytes": 8875,
+      "sha256": "a4178b59713536fd21af4edd367b4afe2e9efbe2fee42862f61c59cc9d80b82e",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_keyboard_channels.js",
+      "sourcePath": "docs/js/playground_keyboard_channels.js",
+      "bytes": 5822,
+      "sha256": "079a063894f68f599a64de64df7a71bd26a54a2420f23d07986845a11423f663",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_live.js",
+      "sourcePath": "docs/js/playground_live.js",
+      "bytes": 14734,
+      "sha256": "e2cb7e5982d4e607ca72ac7d3af9e5613ba5410611dc591f1ae52e941e663f4e",
+      "localImports": [
+        "./playground_log.js"
+      ]
+    },
+    {
+      "path": "js/playground_log.js",
+      "sourcePath": "docs/js/playground_log.js",
+      "bytes": 2169,
+      "sha256": "6f9e858988686497c6beb3b07dcd5067761463994c1de1edd4f8acd506a4f0e6",
+      "localImports": []
+    },
+    {
+      "path": "js/playground_music.js",
+      "sourcePath": "docs/js/playground_music.js",
+      "bytes": 11300,
+      "sha256": "26fb0f1839616deb531b7f2cfa6ad0b7049e9d53c9c045b7231024e69209b7d6",
+      "localImports": [
+        "./pitch.js",
+        "./playground_duration.js?v=shared-beat-clock-1"
+      ]
+    },
+    {
+      "path": "js/playground_performance_processor.js",
+      "sourcePath": "docs/js/playground_performance_processor.js",
+      "bytes": 31186,
+      "sha256": "2c26b4d37ecec359174f885edfb61ff4b7e4690e2e814858042e3f08d0daac31",
+      "localImports": [
+        "./playground_performance_queue.js"
+      ]
+    },
+    {
+      "path": "js/playground_performance_queue.js",
+      "sourcePath": "docs/js/playground_performance_queue.js",
+      "bytes": 22473,
+      "sha256": "5b43b61283877970d990d5bc45c0b1565d26febeeaeaf584ce0e10cf3b1a2008",
+      "localImports": []
+    },
+    {
+      "path": "js/ps1_parameters.js",
+      "sourcePath": "docs/js/ps1_parameters.js",
+      "bytes": 6237,
+      "sha256": "c5e4d60ffb4605bac11b275a9089895c114732fc51f1a9f04c88e5133dd3ced1",
+      "localImports": []
+    },
+    {
+      "path": "js/ps1_spu.js",
+      "sourcePath": "docs/js/ps1_spu.js",
+      "bytes": 10862,
+      "sha256": "d7fca7f2e4e9b7292cb5157d6e9ea1df67dd98b6facae478063f44864ae67769",
+      "localImports": []
+    },
+    {
+      "path": "js/ps1_vab.js",
+      "sourcePath": "docs/js/ps1_vab.js",
+      "bytes": 14976,
+      "sha256": "1f5b5f0a1f4fce7935b27a805aeccce24c1623e6f0ce5951c27639b3b5639a87",
+      "localImports": [
+        "./ps1synth.js"
+      ]
+    },
+    {
+      "path": "js/ps1synth.js",
+      "sourcePath": "docs/js/ps1synth.js",
+      "bytes": 21748,
+      "sha256": "efe17157a7d127cf8835a6c0c5de1a17135ef9e11a417b111b61858050fc5193",
+      "localImports": [
+        "./ps1_parameters.js?v=ps1-voice-editor-1",
+        "./ps1_spu.js?v=ps1-deferred-release-1",
+        "./soundchip_pitch.js"
+      ]
+    },
+    {
+      "path": "js/rf5c164_notes.js",
+      "sourcePath": "docs/js/rf5c164_notes.js",
+      "bytes": 8631,
+      "sha256": "cd10b0abe19000e699edd181b3527edbea8d06ada2dbf34a88c51e12bf9d273f",
+      "localImports": [
+        "./soundchip_pitch.js"
+      ]
+    },
+    {
+      "path": "js/rf5c164_pcm.js",
+      "sourcePath": "docs/js/rf5c164_pcm.js",
+      "bytes": 1537,
+      "sha256": "da5835ccd54b0b8d07a82ea8cab10153044c7c20513b973c622957dc8d0b657a",
+      "localImports": []
+    },
+    {
+      "path": "js/rf5c164synth.js",
+      "sourcePath": "docs/js/rf5c164synth.js",
+      "bytes": 6332,
+      "sha256": "dff616b61eb9e567e73add6df849f80299426aee4c2897554c3bd9b2263192ef",
+      "localImports": [
+        "./rf5c164_notes.js?v=rf5c164-notes-1",
+        "./rf5c164_pcm.js"
+      ]
+    },
+    {
+      "path": "js/segapsg.js",
+      "sourcePath": "docs/js/segapsg.js",
+      "bytes": 10149,
+      "sha256": "c482525bb445b73b03ed35832ca3855f25d29c145267b16ecb9687e0e8e72c46",
+      "localImports": []
+    },
+    {
+      "path": "js/segapsg_api.js",
+      "sourcePath": "docs/js/segapsg_api.js",
+      "bytes": 1086,
+      "sha256": "cfbc80e40bf100cec95af12da6f96790edefab1c7245bbc04f5b04e25e24aeaa",
+      "localImports": [
+        "./segapsgsynth.js?v=audio-numeric-bindings-1"
+      ]
+    },
+    {
+      "path": "js/segapsgsynth.js",
+      "sourcePath": "docs/js/segapsgsynth.js",
+      "bytes": 10444,
+      "sha256": "326880650f7161ec619119802fd253312bf14775850bcb1ecfdc9a6ab33624e9",
+      "localImports": [
+        "./segapsg.js?v=audio-numeric-bindings-1",
+        "./soundchip_pitch.js"
+      ]
+    },
+    {
+      "path": "js/soundchip_mixer_presets.js",
+      "sourcePath": "docs/js/soundchip_mixer_presets.js",
+      "bytes": 3296,
+      "sha256": "6bdb304a4c74efba44ba76d5414c40d47dbf1bbf92b2fc66fcf4e2122d04fc20",
+      "localImports": []
+    },
+    {
+      "path": "js/soundchip_pitch.js",
+      "sourcePath": "docs/js/soundchip_pitch.js",
+      "bytes": 2854,
+      "sha256": "c8bcce0f27c2500d6090b5e56660e697b8b03d7ec011cee4deba05664038bae9",
+      "localImports": []
+    },
+    {
+      "path": "js/tetorica_virtual_files/filesystem.js",
+      "sourcePath": "docs/js/tetorica_virtual_files/filesystem.js",
+      "bytes": 20206,
+      "sha256": "25f821472b25bc58cf4b840a44111b2639013861ef14191de8bd684e973c9b41",
+      "localImports": [
+        "./path.js",
+        "./reader.js",
+        "./sync.js"
+      ]
+    },
+    {
+      "path": "js/tetorica_virtual_files/path.js",
+      "sourcePath": "docs/js/tetorica_virtual_files/path.js",
+      "bytes": 1112,
+      "sha256": "79be21a2ba017b48882cfd69f01edd19a3e6858190405cc0d4588dcfd8a218a4",
+      "localImports": []
+    },
+    {
+      "path": "js/tetorica_virtual_files/reader.js",
+      "sourcePath": "docs/js/tetorica_virtual_files/reader.js",
+      "bytes": 1404,
+      "sha256": "90b21ba56ced53f65508513bc5741bea9b62af0b580fe218723628800ad76c6f",
+      "localImports": [
+        "./path.js"
+      ]
+    },
+    {
+      "path": "js/tetorica_virtual_files/sync.js",
+      "sourcePath": "docs/js/tetorica_virtual_files/sync.js",
+      "bytes": 5701,
+      "sha256": "7c2cb490bbf0ce036a79e1d513efcf41d1476e2ec778fe1867069a7a926432d4",
+      "localImports": [
+        "./path.js"
+      ]
+    },
+    {
+      "path": "js/vgm_file.js",
+      "sourcePath": "docs/js/vgm_file.js",
+      "bytes": 3428,
+      "sha256": "2539d82ea2b17f5d37b7f66e88bcc948acda4d906613358c14a1bd102c36bf48",
+      "localImports": []
+    },
+    {
+      "path": "js/ym2612vgm.js",
+      "sourcePath": "docs/js/ym2612vgm.js",
+      "bytes": 117637,
+      "sha256": "1587950d955d577262a11e754f533133b8194d65272e740c8b48b9f3b465e06b",
+      "localImports": [
+        "./opn_fm_vgm.js"
+      ]
+    },
+    {
+      "path": "playground/playground_cassette.js",
+      "sourcePath": "docs/playground/playground_cassette.js",
+      "bytes": 14751,
+      "sha256": "685f14c303706e60f27809b2c53d84003e356d1ce774df523475799b245a3346",
+      "localImports": [
+        "./vendor/fflate.js"
+      ]
+    },
+    {
+      "path": "playground/playground_declarations.js",
+      "sourcePath": "docs/playground/playground_declarations.js",
+      "bytes": 2945,
+      "sha256": "7701ce32ef1139309f457f6d98964a11ba6153ed0eb58f9a36af4066689d3255",
+      "localImports": []
+    },
+    {
+      "path": "playground/playground_example_order.js",
+      "sourcePath": "docs/playground/playground_example_order.js",
+      "bytes": 315,
+      "sha256": "0764d46c06697fef7f111b69b9f6d3f4a0ad9c8c96218929cffdab79af4b1209",
+      "localImports": []
+    },
+    {
+      "path": "playground/playground_file_tree.js",
+      "sourcePath": "docs/playground/playground_file_tree.js",
+      "bytes": 4862,
+      "sha256": "7bbc4c40fb6d30e65d36d9408c2c0337dbcee6ae3770fa85b379ba27ae9cee30",
+      "localImports": [
+        "./playground_example_order.js?v=scsp-fm-1"
+      ]
+    },
+    {
+      "path": "playground/playground_monaco.js",
+      "sourcePath": "docs/playground/playground_monaco.js",
+      "bytes": 23112,
+      "sha256": "2f46e48535bdf8419dd9187c6b887dc50646bdee3f5f35a0e1c2a67860dacd45",
+      "localImports": [
+        "./playground_declarations.js?v=ps1-vab-api-1",
+        "./playground_monaco_completion.js?v=ps1-vab-api-1",
+        "./playground_monaco_definitions.js?v=sdsp-code-review-1"
+      ]
+    },
+    {
+      "path": "playground/playground_monaco_completion.js",
+      "sourcePath": "docs/playground/playground_monaco_completion.js",
+      "bytes": 45033,
+      "sha256": "ca6c6bf3acb8d1a5fc4246fc0e598b5603d221610353f8c063e0ed43249f5f49",
+      "localImports": [
+        "../js/megasynth-fm-presets.js"
+      ]
+    },
+    {
+      "path": "playground/playground_monaco_definitions.js",
+      "sourcePath": "docs/playground/playground_monaco_definitions.js",
+      "bytes": 24424,
+      "sha256": "d816c30009587ddd318c56bdc9b7250217ddb990f2d3a19c8554cd2c905284ee",
+      "localImports": []
+    },
+    {
+      "path": "playground/playground_virtual_files.js",
+      "sourcePath": "docs/playground/playground_virtual_files.js",
+      "bytes": 5205,
+      "sha256": "d8d0a6f9c1046181936ef38bbd555d96d6e814eca567f51306f05e998554ae41",
+      "localImports": [
+        "../js/tetorica_virtual_files/filesystem.js",
+        "../js/tetorica_virtual_files/path.js",
+        "../js/tetorica_virtual_files/reader.js"
+      ]
+    },
+    {
+      "path": "playground/vendor/fflate.js",
+      "sourcePath": "docs/playground/vendor/fflate.js",
+      "bytes": 90922,
+      "sha256": "b7ca4450b19559a1d50eb381adcee94b82449674be4cd17789d9beba7e6122a1",
+      "localImports": []
+    },
+    {
+      "path": "synth-spu/file_context_menu.js",
+      "sourcePath": "docs/synth-spu/file_context_menu.js",
+      "bytes": 6313,
+      "sha256": "246c5bc3108826c68c85c3539c45bafa939e1ef99d69dd84cf81b416e40786c3",
+      "localImports": []
+    },
+    {
+      "path": "synth-spu/spu_synth_visualizer.js",
+      "sourcePath": "docs/synth-spu/spu_synth_visualizer.js",
+      "bytes": 10421,
+      "sha256": "0e4cba8d283d728579e592b28a87f008165b5d5d00d1cb4956e90b06f84d6b47",
+      "localImports": []
+    },
+    {
+      "path": "synth-spu/synth.css",
+      "sourcePath": "docs/synth-spu/synth.css",
+      "bytes": 36580,
+      "sha256": "d3c1a57beb040cb1a4cecea807eeb9c15aa527a9d036c4c04f8d11ca67b56869",
+      "localImports": []
+    },
+    {
+      "path": "synth-ym2149-st/atari_engine.js",
+      "sourcePath": "docs/synth-ym2149-st/atari_engine.js",
+      "bytes": 4759,
+      "sha256": "6f26b35b13b6cccf665d3bdf62149731e4b92a9eb7ef19db10683f894acfd3c8",
+      "localImports": []
+    },
+    {
+      "path": "synth-ym2149-st/atari_worker.js",
+      "sourcePath": "docs/synth-ym2149-st/atari_worker.js",
+      "bytes": 5241,
+      "sha256": "126e401c3d8396b86748bdc5063ec3f3984561ec4e8b87c261de64170f5f77d3",
+      "localImports": []
+    },
+    {
+      "path": "synth-ym2149-st/audio.js",
+      "sourcePath": "docs/synth-ym2149-st/audio.js",
+      "bytes": 4738,
+      "sha256": "226d413d8bb2f3cb0ed4a91df5596d13516358b87ff974e265b447a381a5100c",
+      "localImports": [
+        "../js/playground_ay8910.js",
+        "../js/playground_ay8910_audio.js",
+        "../js/soundchip_mixer_presets.js",
+        "./instrument.js",
+        "./preset.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/code_audio.js",
+      "sourcePath": "docs/synth-ym2149-st/code_audio.js",
+      "bytes": 8180,
+      "sha256": "2a9bc9a48da9ac5fcb7aca699eea352544706a7fcb6070493c66688538fddabe",
+      "localImports": [
+        "../js/native_fx_rack.js?v=prepared-fx-rerun-2",
+        "../synth/synth_code_output.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/code_declarations.js",
+      "sourcePath": "docs/synth-ym2149-st/code_declarations.js",
+      "bytes": 2271,
+      "sha256": "df32290f4cb9d085d6ec93480dab31e38eb68a4383891e3ece0207ba9fc6bb41",
+      "localImports": [
+        "../synth/synth_code_declarations.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/code_examples.js",
+      "sourcePath": "docs/synth-ym2149-st/code_examples.js",
+      "bytes": 13503,
+      "sha256": "76067b9efcc180cfa8567dbbbdd06f8cc1ec342f1cce992636189fa1be466338",
+      "localImports": []
+    },
+    {
+      "path": "synth-ym2149-st/code_files.js",
+      "sourcePath": "docs/synth-ym2149-st/code_files.js",
+      "bytes": 40674,
+      "sha256": "7b38a1ed738ecf6aff59d0a916e6695b633664ced1b46b284444e77ac70db0f9",
+      "localImports": [
+        "../js/tetorica_virtual_files/filesystem.js",
+        "../js/tetorica_virtual_files/path.js",
+        "../playground/playground_file_tree.js",
+        "../synth-spu/file_context_menu.js?v=spu-files-menu-1",
+        "./code_examples.js?v=ym-sample-1",
+        "./code_project.js?v=draft-reconnect-1",
+        "./music_files.js",
+        "./preset.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/code_host.js",
+      "sourcePath": "docs/synth-ym2149-st/code_host.js",
+      "bytes": 5019,
+      "sha256": "be09861aef207b4fee6062c28d957058289c24190e4197f3cb0251899cdcc4af",
+      "localImports": [
+        "../js/playground_code_runtime.js?v=console-table-1",
+        "../synth/synth_code_controls.js?v=draft-reconnect-1",
+        "./code_audio.js",
+        "./code_declarations.js",
+        "./code_files.js?v=ym-sample-1",
+        "./code_project.js?v=draft-reconnect-1"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/code_project.js",
+      "sourcePath": "docs/synth-ym2149-st/code_project.js",
+      "bytes": 10630,
+      "sha256": "0a2065819ee9abf9256d6cb60dfc41a3802700a8739c3b978ebf84b10fc04356",
+      "localImports": [
+        "../js/tetorica_virtual_files/filesystem.js",
+        "../js/tetorica_virtual_files/path.js",
+        "../playground/playground_cassette.js",
+        "../synth/synth_code_project.js?code-files-scope=2",
+        "../synth/synth_project_store.js?v=draft-reconnect-1",
+        "./preset.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/controls.js",
+      "sourcePath": "docs/synth-ym2149-st/controls.js",
+      "bytes": 3668,
+      "sha256": "409e662fa9a1eb6c23bd1b7d7896ca7002e5c51f2f8d7868e9767dc6ff691b27",
+      "localImports": []
+    },
+    {
+      "path": "synth-ym2149-st/instrument.js",
+      "sourcePath": "docs/synth-ym2149-st/instrument.js",
+      "bytes": 10283,
+      "sha256": "26989597d7e34dd30dd38ea6794bc63cb4bb3dec135d3efc5c36d2593d0532b1",
+      "localImports": [
+        "./preset.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/music_files.js",
+      "sourcePath": "docs/synth-ym2149-st/music_files.js",
+      "bytes": 1758,
+      "sha256": "9a6af40d80671b1f7c7fdcc4fb77aecd8fd18f718394aaa5898fce99dc39a2ab",
+      "localImports": []
+    },
+    {
+      "path": "synth-ym2149-st/preset.js",
+      "sourcePath": "docs/synth-ym2149-st/preset.js",
+      "bytes": 2833,
+      "sha256": "854ddceca23de0ee7bb32a99509d6c8c289457fe8a46cd80072ed6acd4d39628",
+      "localImports": []
+    },
+    {
+      "path": "synth-ym2149-st/reference_source.js",
+      "sourcePath": "docs/synth-ym2149-st/reference_source.js",
+      "bytes": 837,
+      "sha256": "b02ad0add9bb412da7dc789e86af09fa0a0563b381c7e188502695b2bb2f40cf",
+      "localImports": [
+        "./atari_engine.js",
+        "./vgm_engine.js",
+        "./vgm_source.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/song_live.js",
+      "sourcePath": "docs/synth-ym2149-st/song_live.js",
+      "bytes": 2945,
+      "sha256": "7f4cc73a2e97a171ab7e1f9635184748cda6f023ae9909727acd27c48f2fad2e",
+      "localImports": [
+        "./preset.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/song_panel.js",
+      "sourcePath": "docs/synth-ym2149-st/song_panel.js",
+      "bytes": 8448,
+      "sha256": "602075eb8cc3d7082aad192f2565aa8d1b8627c618eaf27f06daebc095fb3b23",
+      "localImports": [
+        "./code_project.js",
+        "./music_files.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/song_player.js",
+      "sourcePath": "docs/synth-ym2149-st/song_player.js",
+      "bytes": 22727,
+      "sha256": "dcf7f8909a1b36e10a6c206132b839191bbf285284a27253506196ada185f600",
+      "localImports": []
+    },
+    {
+      "path": "synth-ym2149-st/synth.css",
+      "sourcePath": "docs/synth-ym2149-st/synth.css",
+      "bytes": 13550,
+      "sha256": "b8bd8a42d9bcbb290335dbcbc2ba00739b410b15686623a78420eaa0f12da0eb",
+      "localImports": [
+        "../synth-spu/synth.css"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/synth.js",
+      "sourcePath": "docs/synth-ym2149-st/synth.js",
+      "bytes": 20701,
+      "sha256": "f085767b92074fc2fedb5ffc0f083bd3c7d8175c4e91483c08f2516ca9db7c56",
+      "localImports": [
+        "../synth-spu/spu_synth_visualizer.js",
+        "../synth/synth_keyboard.js",
+        "../synth/synth_menu.js",
+        "./audio.js",
+        "./code_host.js?v=ym-sample-1",
+        "./controls.js",
+        "./preset.js",
+        "./reference_source.js",
+        "./song_live.js",
+        "./song_panel.js",
+        "./song_player.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/vgm_engine.js",
+      "sourcePath": "docs/synth-ym2149-st/vgm_engine.js",
+      "bytes": 3730,
+      "sha256": "5668bef2cb2f0219bf34872abf85bcff2b2000760dd2fd0027f1c909763b72c9",
+      "localImports": [
+        "../generated/ay8910_wasm.js",
+        "../js/ay8910audioengine.js",
+        "./vgm_source.js"
+      ]
+    },
+    {
+      "path": "synth-ym2149-st/vgm_source.js",
+      "sourcePath": "docs/synth-ym2149-st/vgm_source.js",
+      "bytes": 6289,
+      "sha256": "b7825abcb24a22abd14e600797e0364fe6746dd8697189c33e6cb5665ead3842",
+      "localImports": [
+        "../js/ay8910.js",
+        "../js/vgm_file.js",
+        "../js/ym2612vgm.js"
+      ]
+    },
+    {
+      "path": "synth/synth_code_controls.js",
+      "sourcePath": "docs/synth/synth_code_controls.js",
+      "bytes": 21848,
+      "sha256": "a95e856263570b9e77ba3a97a8eb9ef58564c55472da17de4f67a5c3ffc95216",
+      "localImports": [
+        "../playground/playground_monaco.js?v=synth-code-types-1&huc-source=2&sdsp-source=1",
+        "./synth_code_declarations.js?v=shared-pcm-notes-1"
+      ]
+    },
+    {
+      "path": "synth/synth_code_declarations.js",
+      "sourcePath": "docs/synth/synth_code_declarations.js",
+      "bytes": 7464,
+      "sha256": "5f1a800a38b76e63fbb055c0eea3a4277b75e35cc9270ce1f0bdd1dd682584e6",
+      "localImports": []
+    },
+    {
+      "path": "synth/synth_code_output.js",
+      "sourcePath": "docs/synth/synth_code_output.js",
+      "bytes": 4973,
+      "sha256": "dca6ef03aca997f55fda55684fd6e0aa8dd8beb246c68a59ef8ac85efab4e112",
+      "localImports": []
+    },
+    {
+      "path": "synth/synth_code_project.js",
+      "sourcePath": "docs/synth/synth_code_project.js",
+      "bytes": 1623,
+      "sha256": "7fbc1f8b5df80b2fbbfb4d19fa1f36906563f8762317466102ba19d228d17026",
+      "localImports": [
+        "../js/tetorica_virtual_files/filesystem.js",
+        "../js/tetorica_virtual_files/path.js",
+        "../js/tetorica_virtual_files/reader.js",
+        "../playground/playground_virtual_files.js"
+      ]
+    },
+    {
+      "path": "synth/synth_draft_store.js",
+      "sourcePath": "docs/synth/synth_draft_store.js",
+      "bytes": 3656,
+      "sha256": "e5425ddf930f0860531aa8566c6ed122577598447876c17b1ce10384f96335b6",
+      "localImports": []
+    },
+    {
+      "path": "synth/synth_keyboard.js",
+      "sourcePath": "docs/synth/synth_keyboard.js",
+      "bytes": 10010,
+      "sha256": "b7dc1daea64aa6e061bfdb2295010ee24eddaba51ab7ab6cf87c0f751be7c795",
+      "localImports": [
+        "../js/soundchip_pitch.js"
+      ]
+    },
+    {
+      "path": "synth/synth_menu.js",
+      "sourcePath": "docs/synth/synth_menu.js",
+      "bytes": 1808,
+      "sha256": "7f9ee7b7cdf3df52395ddf377af7b9f885751d8661260301cdb271289b7a4c5f",
+      "localImports": []
+    },
+    {
+      "path": "synth/synth_project_store.js",
+      "sourcePath": "docs/synth/synth_project_store.js",
+      "bytes": 1835,
+      "sha256": "6ec7a4b2f234285636a406170359810be96aba58de18e3f7450ac19f3eba1636",
+      "localImports": [
+        "./synth_draft_store.js?v=draft-reconnect-1"
+      ]
+    }
+  ],
+  "originalInputs": [
+    {
+      "path": "LICENSE",
+      "bytes": 1519,
+      "sha256": "2d2e9213c170a9866c616fa85b6da993a6724e10befc61f468ed9bfb84c4691c"
+    },
+    {
+      "path": "docs/generated/atari-audio-player/atari-audio-player-build.json",
+      "bytes": 7917,
+      "sha256": "0c82182b4b9dac20595ad19759ab71b863c8678c67a0b4a01baa8c522046dd72"
+    },
+    {
+      "path": "docs/generated/atari-audio-player/atari-audio-player.wasm",
+      "bytes": 450722,
+      "sha256": "ee17e9922c12051f29ae38217a893c61e39a5c10f7659dfee22bf57509e13c26"
+    },
+    {
+      "path": "docs/js/ay8910.js",
+      "bytes": 6264,
+      "sha256": "f405e5dccb8142d5fae938ba1e720ce2fd821a413c179ff6a5e7e5dff8bbe2de"
+    },
+    {
+      "path": "docs/js/ay8910_operations.js",
+      "bytes": 10825,
+      "sha256": "ff50a169f232caac4f7c967a92c18bfc1b5acd5037def91b5732c765013a2182"
+    },
+    {
+      "path": "docs/js/ay8910_timed_client.js",
+      "bytes": 9489,
+      "sha256": "66ed3f126ac1ef8ae70af395f693545e39bd5249dfb5a81beb53af133482a641"
+    },
+    {
+      "path": "docs/js/ay8910_timed_processor.js",
+      "bytes": 8240,
+      "sha256": "caa0be11cd03fe85d213b92f04824993a4eebe1054eeacc72bd96d9e03060f42"
+    },
+    {
+      "path": "docs/js/ay8910_timed_state.js",
+      "bytes": 2686,
+      "sha256": "615120d31a3c4020d106bc955899b83a463d3e551c34e98631f2237d3b99e198"
+    },
+    {
+      "path": "docs/js/ay8910audioengine.js",
+      "bytes": 5469,
+      "sha256": "202020634fe956c486eb42333db0dcfee4f21c2313f59600097d35f15ff8406e"
+    },
+    {
+      "path": "docs/js/ay8910synth.js",
+      "bytes": 12974,
+      "sha256": "4eb50108d27aa364344cbab8190f63375430fb1477cc98091a0b2c10a8bb2cb6"
+    },
+    {
+      "path": "docs/js/chip_worklet_transport.js",
+      "bytes": 15514,
+      "sha256": "4adcc8a58773fb970700a9846e628fcfea20e5d16b43778ea80d0e083b630a7b"
+    },
+    {
+      "path": "docs/js/custom_fx.js",
+      "bytes": 5764,
+      "sha256": "f719e32f063bdbdb4d7cb9bb7aff1087dde2152ade7449b2819f2d3a6cc4424e"
+    },
+    {
+      "path": "docs/js/megasynth-fm-presets.js",
+      "bytes": 6954,
+      "sha256": "daf3c42d3d6b1777d5729073eed9edf4d96a78d55e22fedfad394137d41bb06c"
+    },
+    {
+      "path": "docs/js/native-fx-worklet.js",
+      "bytes": 8783,
+      "sha256": "d490b7197cdc139314479ad5048725d62e23d12664b126b12dfebb209ef3c4ac"
+    },
+    {
+      "path": "docs/js/native_fx.js",
+      "bytes": 7922,
+      "sha256": "42cf0829acbc3cf779a5fc2005a6c1ac1ecfee92075f468da968c59b0fe4e27f"
+    },
+    {
+      "path": "docs/js/native_fx_engine.js",
+      "bytes": 7061,
+      "sha256": "8f9ba9ff857a34dc46b2646d77838e79fd48cdf4d2d4f3caf7176091a575967f"
+    },
+    {
+      "path": "docs/js/native_fx_graph.js",
+      "bytes": 3612,
+      "sha256": "fc9345f3a1c499b6fb5d2a893ed2c31c92394397e1a0ccaa343fc7b722e64ccf"
+    },
+    {
+      "path": "docs/js/native_fx_rack.js",
+      "bytes": 2128,
+      "sha256": "92e57a539409d7139e4820d275fedff5e9862765f34a5cb3b3c07c67608429a5"
+    },
+    {
+      "path": "docs/js/native_noise.js",
+      "bytes": 4209,
+      "sha256": "c0ce2bdb16f1aed62e6b83f1b27c8e37b25fa2ee5035f0d332f59cd21ae3996f"
+    },
+    {
+      "path": "docs/js/native_sample.js",
+      "bytes": 3645,
+      "sha256": "c281830126e7197cdec59cfdd8c7c1cd51ce26d53afe1887399e1aa81e5b07e0"
+    },
+    {
+      "path": "docs/js/native_sample_processor.js",
+      "bytes": 4443,
+      "sha256": "a1ee1cfa04b11bf4c66d8012e4a22d8a526a7a006333e6fe4e4540af3f1c8f27"
+    },
+    {
+      "path": "docs/js/opn_fm_vgm.js",
+      "bytes": 4213,
+      "sha256": "d9535987aa4284e817172b1cff3cfbdbe893cca70b6cebfe4c09f616802bbc1c"
+    },
+    {
+      "path": "docs/js/pitch.js",
+      "bytes": 1888,
+      "sha256": "fd20f1f31c6c02fcf48213ed51209185a7addc8c526c867e7214563d6825cf42"
+    },
+    {
+      "path": "docs/js/playground_async_tasks.js",
+      "bytes": 2223,
+      "sha256": "17fa8f4c308b5cd758c5230f274da3a1b4a984f3752479ebfd0e184b9bda08fd"
+    },
+    {
+      "path": "docs/js/playground_audio_endpoint.js",
+      "bytes": 2002,
+      "sha256": "e8171d21fe682dd58d8d60c1cfb3f74b442586c254a8698d341fc4e1a7f1f9cd"
+    },
+    {
+      "path": "docs/js/playground_ay8910.js",
+      "bytes": 4641,
+      "sha256": "75663381b3597c19994c799453e207c28adcfe22dd9e3346cdc7973f12c6cdb7"
+    },
+    {
+      "path": "docs/js/playground_ay8910_audio.js",
+      "bytes": 4834,
+      "sha256": "726bd66320e4ce6da63a30d3472cf605064bb3fdbcb3c16733c2c1dc8c5f3bec"
+    },
+    {
+      "path": "docs/js/playground_ay8910_inspector.js",
+      "bytes": 4593,
+      "sha256": "1b61401ef39ecf456bc5904c3747eda4ad9ba9791d4dcce2d57531ac4f0227cc"
+    },
+    {
+      "path": "docs/js/playground_ay8910_worklet.js",
+      "bytes": 8422,
+      "sha256": "5fddb9718645e2ade616db88565af6c3d9a122caee8f83a5259b19abd839bb8c"
+    },
+    {
+      "path": "docs/js/playground_chip_clock.js",
+      "bytes": 5244,
+      "sha256": "3802e15503424667324c4f6e067d5cae3ff4ad1b2adf81d780e8a47aa922ca2d"
+    },
+    {
+      "path": "docs/js/playground_chip_inspector_state.js",
+      "bytes": 13142,
+      "sha256": "37a95d08cffa26d7ba850cdf11ef9af336ce664e27a48a49abbebae3fbb10f67"
+    },
+    {
+      "path": "docs/js/playground_clock.js",
+      "bytes": 19367,
+      "sha256": "e16aeee557adf6b1752bd48907e0671a979b2dd0c46a4afaa20befa9db7e885d"
+    },
+    {
+      "path": "docs/js/playground_code_runtime.js",
+      "bytes": 29787,
+      "sha256": "a2ee92eb46f170e48f9c24e87ce2b14156e6888c73f430707e773db8ba8350bf"
+    },
+    {
+      "path": "docs/js/playground_duration.js",
+      "bytes": 2009,
+      "sha256": "b6f1664b84569fd627d4d4e82a6c0b500edf142a3d9ced13f33ab5dc5606bfb1"
+    },
+    {
+      "path": "docs/js/playground_execution.js",
+      "bytes": 8875,
+      "sha256": "a4178b59713536fd21af4edd367b4afe2e9efbe2fee42862f61c59cc9d80b82e"
+    },
+    {
+      "path": "docs/js/playground_keyboard_channels.js",
+      "bytes": 5822,
+      "sha256": "079a063894f68f599a64de64df7a71bd26a54a2420f23d07986845a11423f663"
+    },
+    {
+      "path": "docs/js/playground_live.js",
+      "bytes": 14734,
+      "sha256": "e2cb7e5982d4e607ca72ac7d3af9e5613ba5410611dc591f1ae52e941e663f4e"
+    },
+    {
+      "path": "docs/js/playground_log.js",
+      "bytes": 2169,
+      "sha256": "6f9e858988686497c6beb3b07dcd5067761463994c1de1edd4f8acd506a4f0e6"
+    },
+    {
+      "path": "docs/js/playground_music.js",
+      "bytes": 11300,
+      "sha256": "26fb0f1839616deb531b7f2cfa6ad0b7049e9d53c9c045b7231024e69209b7d6"
+    },
+    {
+      "path": "docs/js/playground_performance_processor.js",
+      "bytes": 31186,
+      "sha256": "2c26b4d37ecec359174f885edfb61ff4b7e4690e2e814858042e3f08d0daac31"
+    },
+    {
+      "path": "docs/js/playground_performance_queue.js",
+      "bytes": 22473,
+      "sha256": "5b43b61283877970d990d5bc45c0b1565d26febeeaeaf584ce0e10cf3b1a2008"
+    },
+    {
+      "path": "docs/js/ps1_parameters.js",
+      "bytes": 6237,
+      "sha256": "c5e4d60ffb4605bac11b275a9089895c114732fc51f1a9f04c88e5133dd3ced1"
+    },
+    {
+      "path": "docs/js/ps1_spu.js",
+      "bytes": 10862,
+      "sha256": "d7fca7f2e4e9b7292cb5157d6e9ea1df67dd98b6facae478063f44864ae67769"
+    },
+    {
+      "path": "docs/js/ps1_vab.js",
+      "bytes": 14976,
+      "sha256": "1f5b5f0a1f4fce7935b27a805aeccce24c1623e6f0ce5951c27639b3b5639a87"
+    },
+    {
+      "path": "docs/js/ps1synth.js",
+      "bytes": 21748,
+      "sha256": "efe17157a7d127cf8835a6c0c5de1a17135ef9e11a417b111b61858050fc5193"
+    },
+    {
+      "path": "docs/js/rf5c164_notes.js",
+      "bytes": 8631,
+      "sha256": "cd10b0abe19000e699edd181b3527edbea8d06ada2dbf34a88c51e12bf9d273f"
+    },
+    {
+      "path": "docs/js/rf5c164_pcm.js",
+      "bytes": 1537,
+      "sha256": "da5835ccd54b0b8d07a82ea8cab10153044c7c20513b973c622957dc8d0b657a"
+    },
+    {
+      "path": "docs/js/rf5c164synth.js",
+      "bytes": 6332,
+      "sha256": "dff616b61eb9e567e73add6df849f80299426aee4c2897554c3bd9b2263192ef"
+    },
+    {
+      "path": "docs/js/segapsg.js",
+      "bytes": 10149,
+      "sha256": "c482525bb445b73b03ed35832ca3855f25d29c145267b16ecb9687e0e8e72c46"
+    },
+    {
+      "path": "docs/js/segapsg_api.js",
+      "bytes": 1086,
+      "sha256": "cfbc80e40bf100cec95af12da6f96790edefab1c7245bbc04f5b04e25e24aeaa"
+    },
+    {
+      "path": "docs/js/segapsgsynth.js",
+      "bytes": 10444,
+      "sha256": "326880650f7161ec619119802fd253312bf14775850bcb1ecfdc9a6ab33624e9"
+    },
+    {
+      "path": "docs/js/soundchip_mixer_presets.js",
+      "bytes": 3296,
+      "sha256": "6bdb304a4c74efba44ba76d5414c40d47dbf1bbf92b2fc66fcf4e2122d04fc20"
+    },
+    {
+      "path": "docs/js/soundchip_pitch.js",
+      "bytes": 2854,
+      "sha256": "c8bcce0f27c2500d6090b5e56660e697b8b03d7ec011cee4deba05664038bae9"
+    },
+    {
+      "path": "docs/js/tetorica_virtual_files/filesystem.js",
+      "bytes": 20206,
+      "sha256": "25f821472b25bc58cf4b840a44111b2639013861ef14191de8bd684e973c9b41"
+    },
+    {
+      "path": "docs/js/tetorica_virtual_files/path.js",
+      "bytes": 1112,
+      "sha256": "79be21a2ba017b48882cfd69f01edd19a3e6858190405cc0d4588dcfd8a218a4"
+    },
+    {
+      "path": "docs/js/tetorica_virtual_files/reader.js",
+      "bytes": 1404,
+      "sha256": "90b21ba56ced53f65508513bc5741bea9b62af0b580fe218723628800ad76c6f"
+    },
+    {
+      "path": "docs/js/tetorica_virtual_files/sync.js",
+      "bytes": 5701,
+      "sha256": "7c2cb490bbf0ce036a79e1d513efcf41d1476e2ec778fe1867069a7a926432d4"
+    },
+    {
+      "path": "docs/js/vgm_file.js",
+      "bytes": 3428,
+      "sha256": "2539d82ea2b17f5d37b7f66e88bcc948acda4d906613358c14a1bd102c36bf48"
+    },
+    {
+      "path": "docs/js/ym2612vgm.js",
+      "bytes": 117637,
+      "sha256": "1587950d955d577262a11e754f533133b8194d65272e740c8b48b9f3b465e06b"
+    },
+    {
+      "path": "docs/playground/playground_cassette.js",
+      "bytes": 14751,
+      "sha256": "685f14c303706e60f27809b2c53d84003e356d1ce774df523475799b245a3346"
+    },
+    {
+      "path": "docs/playground/playground_declarations.js",
+      "bytes": 2945,
+      "sha256": "7701ce32ef1139309f457f6d98964a11ba6153ed0eb58f9a36af4066689d3255"
+    },
+    {
+      "path": "docs/playground/playground_example_order.js",
+      "bytes": 315,
+      "sha256": "0764d46c06697fef7f111b69b9f6d3f4a0ad9c8c96218929cffdab79af4b1209"
+    },
+    {
+      "path": "docs/playground/playground_file_tree.js",
+      "bytes": 4862,
+      "sha256": "7bbc4c40fb6d30e65d36d9408c2c0337dbcee6ae3770fa85b379ba27ae9cee30"
+    },
+    {
+      "path": "docs/playground/playground_monaco.js",
+      "bytes": 23112,
+      "sha256": "2f46e48535bdf8419dd9187c6b887dc50646bdee3f5f35a0e1c2a67860dacd45"
+    },
+    {
+      "path": "docs/playground/playground_monaco_completion.js",
+      "bytes": 45033,
+      "sha256": "ca6c6bf3acb8d1a5fc4246fc0e598b5603d221610353f8c063e0ed43249f5f49"
+    },
+    {
+      "path": "docs/playground/playground_monaco_definitions.js",
+      "bytes": 24424,
+      "sha256": "d816c30009587ddd318c56bdc9b7250217ddb990f2d3a19c8554cd2c905284ee"
+    },
+    {
+      "path": "docs/playground/playground_virtual_files.js",
+      "bytes": 5205,
+      "sha256": "d8d0a6f9c1046181936ef38bbd555d96d6e814eca567f51306f05e998554ae41"
+    },
+    {
+      "path": "docs/playground/tetorica-playground-atari-st.d.ts",
+      "bytes": 122,
+      "sha256": "501309ec6633c5f2f78fee2a5dbdbf19c31b0a3af57430fc9bb8dc1c4ae88c75"
+    },
+    {
+      "path": "docs/playground/tetorica-playground-globals.d.ts",
+      "bytes": 150035,
+      "sha256": "9aea7bb89486e0a49bbd7b7fe31c60b9328c5baa16eaa3e7949ed60f18c602c0"
+    },
+    {
+      "path": "docs/playground/tetorica-shell.d.ts",
+      "bytes": 2953,
+      "sha256": "a0d17aeb969faf8a2e8489a00e6f1a869622e08db7b1b019cced67774326391d"
+    },
+    {
+      "path": "docs/playground/vendor/fflate-LICENSE",
+      "bytes": 1069,
+      "sha256": "0a1df3a083d0c010560aa342e87959c8c1070e6fd54545741f083f22d0c8b551"
+    },
+    {
+      "path": "docs/playground/vendor/fflate.js",
+      "bytes": 90922,
+      "sha256": "b7ca4450b19559a1d50eb381adcee94b82449674be4cd17789d9beba7e6122a1"
+    },
+    {
+      "path": "docs/synth-spu/file_context_menu.js",
+      "bytes": 6313,
+      "sha256": "246c5bc3108826c68c85c3539c45bafa939e1ef99d69dd84cf81b416e40786c3"
+    },
+    {
+      "path": "docs/synth-spu/spu_synth_visualizer.js",
+      "bytes": 10421,
+      "sha256": "0e4cba8d283d728579e592b28a87f008165b5d5d00d1cb4956e90b06f84d6b47"
+    },
+    {
+      "path": "docs/synth-spu/synth.css",
+      "bytes": 36580,
+      "sha256": "d3c1a57beb040cb1a4cecea807eeb9c15aa527a9d036c4c04f8d11ca67b56869"
+    },
+    {
+      "path": "docs/synth-ym2149-st/README.md",
+      "bytes": 18188,
+      "sha256": "b8ab7cd784a1ddbc8a1ade0680a9f064a5361230a421a336fffc1643c3e33eeb"
+    },
+    {
+      "path": "docs/synth-ym2149-st/atari_engine.js",
+      "bytes": 4759,
+      "sha256": "6f26b35b13b6cccf665d3bdf62149731e4b92a9eb7ef19db10683f894acfd3c8"
+    },
+    {
+      "path": "docs/synth-ym2149-st/atari_worker.js",
+      "bytes": 5241,
+      "sha256": "126e401c3d8396b86748bdc5063ec3f3984561ec4e8b87c261de64170f5f77d3"
+    },
+    {
+      "path": "docs/synth-ym2149-st/audio.js",
+      "bytes": 4738,
+      "sha256": "226d413d8bb2f3cb0ed4a91df5596d13516358b87ff974e265b447a381a5100c"
+    },
+    {
+      "path": "docs/synth-ym2149-st/code_audio.js",
+      "bytes": 8180,
+      "sha256": "2a9bc9a48da9ac5fcb7aca699eea352544706a7fcb6070493c66688538fddabe"
+    },
+    {
+      "path": "docs/synth-ym2149-st/code_declarations.js",
+      "bytes": 2271,
+      "sha256": "df32290f4cb9d085d6ec93480dab31e38eb68a4383891e3ece0207ba9fc6bb41"
+    },
+    {
+      "path": "docs/synth-ym2149-st/code_examples.js",
+      "bytes": 13503,
+      "sha256": "76067b9efcc180cfa8567dbbbdd06f8cc1ec342f1cce992636189fa1be466338"
+    },
+    {
+      "path": "docs/synth-ym2149-st/code_files.js",
+      "bytes": 40674,
+      "sha256": "7b38a1ed738ecf6aff59d0a916e6695b633664ced1b46b284444e77ac70db0f9"
+    },
+    {
+      "path": "docs/synth-ym2149-st/code_host.js",
+      "bytes": 5019,
+      "sha256": "be09861aef207b4fee6062c28d957058289c24190e4197f3cb0251899cdcc4af"
+    },
+    {
+      "path": "docs/synth-ym2149-st/code_project.js",
+      "bytes": 10630,
+      "sha256": "0a2065819ee9abf9256d6cb60dfc41a3802700a8739c3b978ebf84b10fc04356"
+    },
+    {
+      "path": "docs/synth-ym2149-st/controls.js",
+      "bytes": 3668,
+      "sha256": "409e662fa9a1eb6c23bd1b7d7896ca7002e5c51f2f8d7868e9767dc6ff691b27"
+    },
+    {
+      "path": "docs/synth-ym2149-st/index.html",
+      "bytes": 20835,
+      "sha256": "c96840bb9a973861bfc44adfe450870004aadad9aa9ed1b8573a44c2b646dbf4"
+    },
+    {
+      "path": "docs/synth-ym2149-st/instrument.js",
+      "bytes": 10283,
+      "sha256": "26989597d7e34dd30dd38ea6794bc63cb4bb3dec135d3efc5c36d2593d0532b1"
+    },
+    {
+      "path": "docs/synth-ym2149-st/music_files.js",
+      "bytes": 1758,
+      "sha256": "9a6af40d80671b1f7c7fdcc4fb77aecd8fd18f718394aaa5898fce99dc39a2ab"
+    },
+    {
+      "path": "docs/synth-ym2149-st/preset.js",
+      "bytes": 2833,
+      "sha256": "854ddceca23de0ee7bb32a99509d6c8c289457fe8a46cd80072ed6acd4d39628"
+    },
+    {
+      "path": "docs/synth-ym2149-st/reference_source.js",
+      "bytes": 837,
+      "sha256": "b02ad0add9bb412da7dc789e86af09fa0a0563b381c7e188502695b2bb2f40cf"
+    },
+    {
+      "path": "docs/synth-ym2149-st/song_live.js",
+      "bytes": 2945,
+      "sha256": "7f4cc73a2e97a171ab7e1f9635184748cda6f023ae9909727acd27c48f2fad2e"
+    },
+    {
+      "path": "docs/synth-ym2149-st/song_panel.js",
+      "bytes": 8448,
+      "sha256": "602075eb8cc3d7082aad192f2565aa8d1b8627c618eaf27f06daebc095fb3b23"
+    },
+    {
+      "path": "docs/synth-ym2149-st/song_player.js",
+      "bytes": 22727,
+      "sha256": "dcf7f8909a1b36e10a6c206132b839191bbf285284a27253506196ada185f600"
+    },
+    {
+      "path": "docs/synth-ym2149-st/synth.css",
+      "bytes": 13550,
+      "sha256": "b8bd8a42d9bcbb290335dbcbc2ba00739b410b15686623a78420eaa0f12da0eb"
+    },
+    {
+      "path": "docs/synth-ym2149-st/synth.js",
+      "bytes": 20701,
+      "sha256": "f085767b92074fc2fedb5ffc0f083bd3c7d8175c4e91483c08f2516ca9db7c56"
+    },
+    {
+      "path": "docs/synth-ym2149-st/vgm_engine.js",
+      "bytes": 3730,
+      "sha256": "5668bef2cb2f0219bf34872abf85bcff2b2000760dd2fd0027f1c909763b72c9"
+    },
+    {
+      "path": "docs/synth-ym2149-st/vgm_source.js",
+      "bytes": 6289,
+      "sha256": "b7825abcb24a22abd14e600797e0364fe6746dd8697189c33e6cb5665ead3842"
+    },
+    {
+      "path": "docs/synth/synth_code_controls.js",
+      "bytes": 21848,
+      "sha256": "a95e856263570b9e77ba3a97a8eb9ef58564c55472da17de4f67a5c3ffc95216"
+    },
+    {
+      "path": "docs/synth/synth_code_declarations.js",
+      "bytes": 7464,
+      "sha256": "5f1a800a38b76e63fbb055c0eea3a4277b75e35cc9270ce1f0bdd1dd682584e6"
+    },
+    {
+      "path": "docs/synth/synth_code_output.js",
+      "bytes": 4973,
+      "sha256": "dca6ef03aca997f55fda55684fd6e0aa8dd8beb246c68a59ef8ac85efab4e112"
+    },
+    {
+      "path": "docs/synth/synth_code_project.js",
+      "bytes": 1623,
+      "sha256": "7fbc1f8b5df80b2fbbfb4d19fa1f36906563f8762317466102ba19d228d17026"
+    },
+    {
+      "path": "docs/synth/synth_draft_store.js",
+      "bytes": 3656,
+      "sha256": "e5425ddf930f0860531aa8566c6ed122577598447876c17b1ce10384f96335b6"
+    },
+    {
+      "path": "docs/synth/synth_keyboard.js",
+      "bytes": 10010,
+      "sha256": "b7dc1daea64aa6e061bfdb2295010ee24eddaba51ab7ab6cf87c0f751be7c795"
+    },
+    {
+      "path": "docs/synth/synth_menu.js",
+      "bytes": 1808,
+      "sha256": "7f9ee7b7cdf3df52395ddf377af7b9f885751d8661260301cdb271289b7a4c5f"
+    },
+    {
+      "path": "docs/synth/synth_project_store.js",
+      "bytes": 1835,
+      "sha256": "6ec7a4b2f234285636a406170359810be96aba58de18e3f7450ac19f3eba1636"
+    },
+    {
+      "path": "docs/tetorica_ym2149_st_synth.webp",
+      "bytes": 215642,
+      "sha256": "e3e9a0931927f4c61a42f7b7a80decf7d920206c5f06488dcc0741776be52600"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 55415,
+      "sha256": "25b371d87334725070a1d055e140a426e5aecf6101db517c8be803d363d22849"
+    },
+    {
+      "path": "package.json",
+      "bytes": 12238,
+      "sha256": "777f42ba407652cc9294de2a4a0f8636cc7231de05fc90b6dd7f0f9db072342e"
+    },
+    {
+      "path": "packages/virtual-files/LICENSE",
+      "bytes": 1519,
+      "sha256": "2d2e9213c170a9866c616fa85b6da993a6724e10befc61f468ed9bfb84c4691c"
+    },
+    {
+      "path": "scripts/atari_audio_player_artifacts.mjs",
+      "bytes": 3907,
+      "sha256": "9a2341a1e9f3c7f89278effdf04441077cb167ef012534a50472fe3f54a5e7eb"
+    },
+    {
+      "path": "scripts/build_atari_audio_player_wasm.sh",
+      "bytes": 1196,
+      "sha256": "e1ac101ffe86340a4ee8671ab7a50771d265197cae7afcf215394e7192d84397"
+    },
+    {
+      "path": "scripts/build_native_audio_effect.sh",
+      "bytes": 2183,
+      "sha256": "195f57fa21ea429411030232b753992556214f45c62588aa2ace7bceb231abe1"
+    },
+    {
+      "path": "scripts/copy_atari_audio_sources.mjs",
+      "bytes": 4946,
+      "sha256": "24d89aa74326a0bcdb4871b5016921ce4eb3d878175973339b4f41b723d5fe2d"
+    },
+    {
+      "path": "scripts/copy_ay8910_sources.mjs",
+      "bytes": 4796,
+      "sha256": "112b765b9cbcdaa8fa2779061f75e51413fd86840cae580789f26dbb8b6f054c"
+    },
+    {
+      "path": "scripts/copy_readable_modules.mjs",
+      "bytes": 3657,
+      "sha256": "bf58b3f05bfc2a48f7a35a0cb3f797436ed6f379af251e8ecf03240ba297d05a"
+    },
+    {
+      "path": "scripts/package_itch_ym2149_st_synth.mjs",
+      "bytes": 10902,
+      "sha256": "0713ff1419fcaef24a36d157403d4d7b81f7860c3398a7139f57d71552a819ec"
+    },
+    {
+      "path": "scripts/package_itch_ym2149_st_synth.sh",
+      "bytes": 187,
+      "sha256": "3bcd7448ad17bed43b2ca3321d95960bf3d4451a3137230fa3f33ca4804f4c99"
+    },
+    {
+      "path": "scripts/runtime_artifacts.mjs",
+      "bytes": 18593,
+      "sha256": "249a68c61e575a83410e354afeff7ff5956d786ebd1f5608be2a2f960aa0998a"
+    },
+    {
+      "path": "scripts/wasm_sdk_inventory.mjs",
+      "bytes": 24241,
+      "sha256": "b65e5e1966756e6f20f4a47989611a0f1b702446e97d748f92e87eaad245bab5"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/compressor.c",
+      "bytes": 2314,
+      "sha256": "6e3e2c7588f0be7f35378b6698340e7aea21cecce1cd6be7cb6ebe046b670784"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/compressor.h",
+      "bytes": 289,
+      "sha256": "981f36abf7fbf33be3de482a2200b539cbd6d562011018a9660976ae69c96c4c"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/eq.c",
+      "bytes": 2546,
+      "sha256": "0ade21edfddf0aab6d3c6d145e9464ba1a03cc9e78f85a12ee0fa95e7e998d0f"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/extra_fx.c",
+      "bytes": 7536,
+      "sha256": "1b6cad91d18f3080bb921f39398312830b72b0775b47ebf34f80ffe2966577b3"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/extra_fx.h",
+      "bytes": 407,
+      "sha256": "1eb9d97ff152403f382878377e13710591d5cb8fb2297e1457e18220bf19b7a3"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/gain.c",
+      "bytes": 2081,
+      "sha256": "1a769210e885c1f3a0c47dba745bcfa395eb5c6d9306ddcc2d5c101a88fde6a3"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/graph.c",
+      "bytes": 3847,
+      "sha256": "8637dff231d3960961f043b1f2738d79264a6f5d8abe6de3f3029d15e7cd9f61"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/noise.c",
+      "bytes": 4153,
+      "sha256": "b32e4f637782c4a9a35cfaf0c1134d68fa9977db75e4033e0d4fbc0738c11e71"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/noise_gate.c",
+      "bytes": 2821,
+      "sha256": "6fc3d87e6d0f0b418ab405c7f24163958e54c82e92b6ae58c524c66d86b24325"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/noise_gate.h",
+      "bytes": 298,
+      "sha256": "5258f6bed8e8a8e38b5a811008e6611712af75cb0887a63f98a34589447046e6"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/reverb.c",
+      "bytes": 2850,
+      "sha256": "983469a02979c04189b7e0ca6c3b1a3360f8ab8bb2cf34cfe1b3154a0b587d19"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/reverb.h",
+      "bytes": 212,
+      "sha256": "a1f465433a8e70fcb2c8ad8b8634c88fb44918051f68f3714b63810ae7c87c60"
+    },
+    {
+      "path": "tetorica_src/native/audio_effect/sample.c",
+      "bytes": 5119,
+      "sha256": "9c6971c6ce67c97b639e036eb76edac7f3215544d7b978c6ce646a53a93fdb32"
+    },
+    {
+      "path": "tetorica_src/runtime/generated/ay8910_wasm.js",
+      "bytes": 12113,
+      "sha256": "f0e92cac093e3487eec2090fae73182967109620f23921d2d09b36f9a2e8e29b"
+    },
+    {
+      "path": "tetorica_src/runtime/generated/effects/gain.wasm",
+      "bytes": 48297,
+      "sha256": "d5183259003b3f7fdda5ba1f85e69c10687e95d13f5499fa2f5fbcf08d3de290"
+    },
+    {
+      "path": "tetorica_src/wasm/atari_audio_player_wasm.cpp",
+      "bytes": 14785,
+      "sha256": "c2003ba0767054d4d6bdd30e57e2025105e2fdb1c71dc8a16ab3f9de228ede92"
+    },
+    {
+      "path": "third_party/atari-audio/LICENSE",
+      "bytes": 1070,
+      "sha256": "3969bd71fd2a8b1ffa92b174aace1d338265270fe150335d8571f1358d319c8d"
+    },
+    {
+      "path": "third_party/atari-audio/PATCHES.md",
+      "bytes": 2931,
+      "sha256": "ed51e9cf720284d1c6f0cf6f5a447eaf43937bf7d9472ac78229149ba5c94439"
+    },
+    {
+      "path": "third_party/atari-audio/UPSTREAM_README.md",
+      "bytes": 6488,
+      "sha256": "cd1ed8fb4133c32a12727e1b82b41cc70598ce6bacd95941b7487b58a3900109"
+    },
+    {
+      "path": "third_party/atari-audio/local.patch",
+      "bytes": 7589,
+      "sha256": "af42e18cc03139f1bf3c843bb63cbd643b6663edcc6534a1d42a2603e3b9432e"
+    },
+    {
+      "path": "third_party/atari-audio/src/AtariAudio.h",
+      "bytes": 350,
+      "sha256": "9fa11ad3a9126487df2a6a71c43afb761968f978c3e3707ec2fb56e6cc972721"
+    },
+    {
+      "path": "third_party/atari-audio/src/AtariAudioRenderer.cpp",
+      "bytes": 3760,
+      "sha256": "34b46a3e9f92bc89e7fbef3c6b5493c8e5420f3100c1e3f5c9d11baaf1aa619e"
+    },
+    {
+      "path": "third_party/atari-audio/src/AtariAudioRenderer.h",
+      "bytes": 5347,
+      "sha256": "0aca1c0ae90240f971ad77c14f129bde95279c3952939507fccd5903fe65a3d5"
+    },
+    {
+      "path": "third_party/atari-audio/src/AtariMachine.cpp",
+      "bytes": 15000,
+      "sha256": "e018d028658244eb79e8c763cb5c26c2aa9db99bdfbd8e4d5cccb18ee9dd5c95"
+    },
+    {
+      "path": "third_party/atari-audio/src/AtariMachine.h",
+      "bytes": 2269,
+      "sha256": "5ac65da71fa8ace2f61eccc51359dab8c3737e6fb358028dcb811fa3daa53542"
+    },
+    {
+      "path": "third_party/atari-audio/src/Blitter.cpp",
+      "bytes": 5045,
+      "sha256": "6136d13ee6a34ae340c82b2e256136df1cbad251384ae4a950556955994039b2"
+    },
+    {
+      "path": "third_party/atari-audio/src/Blitter.h",
+      "bytes": 1325,
+      "sha256": "eca31d1395bc1b0fd75d4d40da356ec0d25db0c5aed7fffa88593052f84272dd"
+    },
+    {
+      "path": "third_party/atari-audio/src/Mk68901.cpp",
+      "bytes": 4127,
+      "sha256": "80aa5000bad1cfef521bc1947c982255d3f6778326c03438aa7a1b660ed8a2e6"
+    },
+    {
+      "path": "third_party/atari-audio/src/Mk68901.h",
+      "bytes": 1370,
+      "sha256": "5bf67285687fb7b0bf46cfa068f606d97ed731216e0dc153eb723522b5247ce1"
+    },
+    {
+      "path": "third_party/atari-audio/src/SndhRenderer.cpp",
+      "bytes": 7449,
+      "sha256": "25c95f7a582aa049d665686b6d06573730645148db16699f9e9749647d347c7f"
+    },
+    {
+      "path": "third_party/atari-audio/src/SndhRenderer.h",
+      "bytes": 1798,
+      "sha256": "88857598a23d45e8dc694c90e46a388ac061ffb7916406e4f99607c23d2fcc5b"
+    },
+    {
+      "path": "third_party/atari-audio/src/SteDac.cpp",
+      "bytes": 5012,
+      "sha256": "56f407b00521b83161efc9bad4f4dae3fec3b3a5087686ff2801e00635f4ed3b"
+    },
+    {
+      "path": "third_party/atari-audio/src/SteDac.h",
+      "bytes": 1121,
+      "sha256": "e415dc4b6587f878b39a0093def9df9c14ace5729a7d3c9475d7eb6ef7a6fd1a"
+    },
+    {
+      "path": "third_party/atari-audio/src/YmRenderer.cpp",
+      "bytes": 19115,
+      "sha256": "c6812d3d53dd9d1f6b1355bf293aabf1bc219b2977628338e7e67c0008ca1028"
+    },
+    {
+      "path": "third_party/atari-audio/src/YmRenderer.h",
+      "bytes": 4212,
+      "sha256": "5dee61bd2e575829c573d0c07b2c1459e44074b2e08212c300b198f4a43e18ad"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/history.txt",
+      "bytes": 5872,
+      "sha256": "d47d536cc229bbb07518c09c4fd64b450c2bd789954feabf4a91759ea7154c98"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/m68k.cpp",
+      "bytes": 32197,
+      "sha256": "69897d2ba8d6236b9023cc69ee592bb19d68e8b46967ffa8a625327e385adc4f"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/m68k.h",
+      "bytes": 5380,
+      "sha256": "ad51f003e16b9a9aa805e61b1210b41f0cd44a99bcbbc0aacf9c5508d63cc219"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/m68k_func.inc",
+      "bytes": 55618,
+      "sha256": "9b40808214744b6e2750152b92140b7f12aee1b77001f563cfb823f5547bd869"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/m68kconf.h",
+      "bytes": 10045,
+      "sha256": "979cd6a4fb15abeca61cc388858cc58ce1f13b4b6a0790ec5037d40d2a906f54"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/m68kcpu.cpp",
+      "bytes": 31252,
+      "sha256": "35015f3aec0e81cba1585c779effcc45c9c199fa468e33e78843479bffb55850"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/m68kcpu.h",
+      "bytes": 28254,
+      "sha256": "4016c5d9e10cbdae5e4f670f03d3ac0ce27bccadef14648d569407b0c2234470"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/m68kops.cpp",
+      "bytes": 744217,
+      "sha256": "a962c15e046e59fe7839bb8f4b1f7fd88d12b5f8777a1387f1ef85bdb4bd44b6"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/m68kops.h",
+      "bytes": 8384,
+      "sha256": "dcb628e08b39cee615e0f609b53f028db4768dbfedda656dedcbbeb9a51d2d54"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/Musashi/readme.txt",
+      "bytes": 12586,
+      "sha256": "a1906bb4ab8089abf68555bd6035735ad1c0933ab15a2683d55d9356e41c6a2f"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/ice_24.cpp",
+      "bytes": 4943,
+      "sha256": "f2e2671822f14e84822a2affe2fb3dd10592614804414ca98f5a07c782196af7"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/ice_24.h",
+      "bytes": 1572,
+      "sha256": "2019fab81a4d637c38ceb298ca76580e360696a1319f31182282241841480b6c"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/lzh.cpp",
+      "bytes": 11094,
+      "sha256": "83466f2206eec321a6cbbf48ed1c9c02c21913755bddc9b149e4761445732aa9"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/lzh.h",
+      "bytes": 3187,
+      "sha256": "89c111ae32a46a0ccb57b12aca1a14ac5495e12c00ff5a64894cbe39615d1383"
+    },
+    {
+      "path": "third_party/atari-audio/src/external/timedb.inc.h",
+      "bytes": 1157727,
+      "sha256": "0881d7b229aa902f4f9af8e64d0d7ba203abd896013139c9358b0ba204d9b277"
+    },
+    {
+      "path": "third_party/atari-audio/src/timedb.cpp",
+      "bytes": 1712,
+      "sha256": "b28456196c85b7e7716be750517feec2a12c76fa76d509b9e1309842db69d352"
+    },
+    {
+      "path": "third_party/atari-audio/src/timedb.h",
+      "bytes": 378,
+      "sha256": "1b2d53d070df55d7d98b4e780240288d29c37cf6c9e1b1d0c4e2f4895c75bc87"
+    },
+    {
+      "path": "third_party/atari-audio/src/ym2149_tables.h",
+      "bytes": 238940,
+      "sha256": "b8b224a8d70d3a1fbf4e84115f05a3072809866b3cbc7a81d4d53846da7e1456"
+    },
+    {
+      "path": "third_party/atari-audio/src/ym2149c.cpp",
+      "bytes": 7032,
+      "sha256": "f09a7e18d0dca61f82e8bcaf23db99a3d9e091acdae71ec1efff0c552528a313"
+    },
+    {
+      "path": "third_party/atari-audio/src/ym2149c.h",
+      "bytes": 1745,
+      "sha256": "9121922c938fe7ff507a1be71c717c254b578bc9a6d3888f3e5fb14a857d0c94"
+    },
+    {
+      "path": "third_party/atari-audio/src/ym2data.h",
+      "bytes": 125667,
+      "sha256": "f529b25f71a2da74838d5ece2a63f1ee17599d75627a5e43c2a6ca75982c47dd"
+    },
+    {
+      "path": "third_party/atari-audio/upstream.json",
+      "bytes": 8815,
+      "sha256": "e135a0d49094f031dbd6751b2ad5448a877e2391cdc1a61635058360650ae4e7"
+    }
+  ],
+  "sourceArchive": {
+    "path": "sources/ym2149-st-synth-browser-inputs.zip",
+    "bytes": 1195586,
+    "sha256": "d5f94bc8758d337c13a606a990a04750a88264651fb8ff1abcdfd3d9ab1e434f"
+  },
+  "sourceCheck": {
+    "inputs": 12,
+    "files": 18,
+    "sdkVersion": "0.1.8-fm2608-mixer"
+  },
+  "atariSourceCheck": {
+    "inputs": 45,
+    "files": 55,
+    "revision": "1dd9fca810a4f00b4b5e6a5348872ac0a21d88fb",
+    "inputPaths": [
+      "LICENSE",
+      "third_party/atari-audio/src/AtariAudio.h",
+      "third_party/atari-audio/src/AtariAudioRenderer.cpp",
+      "third_party/atari-audio/src/AtariAudioRenderer.h",
+      "third_party/atari-audio/src/AtariMachine.cpp",
+      "third_party/atari-audio/src/AtariMachine.h",
+      "third_party/atari-audio/src/Blitter.cpp",
+      "third_party/atari-audio/src/Blitter.h",
+      "third_party/atari-audio/src/Mk68901.cpp",
+      "third_party/atari-audio/src/Mk68901.h",
+      "third_party/atari-audio/src/SndhRenderer.cpp",
+      "third_party/atari-audio/src/SndhRenderer.h",
+      "third_party/atari-audio/src/SteDac.cpp",
+      "third_party/atari-audio/src/SteDac.h",
+      "third_party/atari-audio/src/YmRenderer.cpp",
+      "third_party/atari-audio/src/YmRenderer.h",
+      "third_party/atari-audio/src/external/Musashi/history.txt",
+      "third_party/atari-audio/src/external/Musashi/m68k.cpp",
+      "third_party/atari-audio/src/external/Musashi/m68k.h",
+      "third_party/atari-audio/src/external/Musashi/m68k_func.inc",
+      "third_party/atari-audio/src/external/Musashi/m68kconf.h",
+      "third_party/atari-audio/src/external/Musashi/m68kcpu.cpp",
+      "third_party/atari-audio/src/external/Musashi/m68kcpu.h",
+      "third_party/atari-audio/src/external/Musashi/m68kops.cpp",
+      "third_party/atari-audio/src/external/Musashi/m68kops.h",
+      "third_party/atari-audio/src/external/Musashi/readme.txt",
+      "third_party/atari-audio/src/external/ice_24.cpp",
+      "third_party/atari-audio/src/external/ice_24.h",
+      "third_party/atari-audio/src/external/lzh.cpp",
+      "third_party/atari-audio/src/external/lzh.h",
+      "third_party/atari-audio/src/external/timedb.inc.h",
+      "third_party/atari-audio/src/timedb.cpp",
+      "third_party/atari-audio/src/timedb.h",
+      "third_party/atari-audio/src/ym2149_tables.h",
+      "third_party/atari-audio/src/ym2149c.cpp",
+      "third_party/atari-audio/src/ym2149c.h",
+      "third_party/atari-audio/src/ym2data.h",
+      "third_party/atari-audio/LICENSE",
+      "third_party/atari-audio/UPSTREAM_README.md",
+      "third_party/atari-audio/upstream.json",
+      "third_party/atari-audio/PATCHES.md",
+      "third_party/atari-audio/local.patch",
+      "tetorica_src/wasm/atari_audio_player_wasm.cpp",
+      "scripts/build_atari_audio_player_wasm.sh",
+      "scripts/atari_audio_player_artifacts.mjs",
+      "docs/generated/atari-audio-player/atari-audio-player.wasm",
+      "docs/generated/atari-audio-player/atari-audio-player-build.json"
+    ],
+    "generated": [
+      {
+        "path": "generated/atari-audio-player/atari-audio-player.wasm",
+        "bytes": 450722,
+        "sha256": "ee17e9922c12051f29ae38217a893c61e39a5c10f7659dfee22bf57509e13c26"
+      },
+      {
+        "path": "generated/atari-audio-player/atari-audio-player-build.json",
+        "bytes": 7917,
+        "sha256": "0c82182b4b9dac20595ad19759ab71b863c8678c67a0b4a01baa8c522046dd72"
+      }
+    ]
+  },
+  "referenceArtifacts": [
+    {
+      "path": "generated/atari-audio-player/atari-audio-player.wasm",
+      "bytes": 450722,
+      "sha256": "ee17e9922c12051f29ae38217a893c61e39a5c10f7659dfee22bf57509e13c26"
+    },
+    {
+      "path": "generated/atari-audio-player/atari-audio-player-build.json",
+      "bytes": 7917,
+      "sha256": "0c82182b4b9dac20595ad19759ab71b863c8678c67a0b4a01baa8c522046dd72"
+    }
+  ],
+  "runtimeArtifacts": [
+    {
+      "path": "generated/ay8910_wasm.js",
+      "bytes": 12113,
+      "sha256": "f0e92cac093e3487eec2090fae73182967109620f23921d2d09b36f9a2e8e29b"
+    },
+    {
+      "path": "generated/ay8910_wasm.wasm",
+      "bytes": 15254,
+      "sha256": "45f1d0cf1ece4ee609cae3a37dbe3c6293961c7f22d9d6ad82fc268a29ab3d74"
+    }
+  ]
+}

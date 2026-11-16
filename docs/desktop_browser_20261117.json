@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "engine": "chromium",
+      "passed": true,
+      "toolbarUnique": true,
+      "pin": true,
+      "originalMenuPreserved": true,
+      "nativeCassetteSave": true,
+      "saveCancel": true,
+      "newProjectBackupCancelPreservesFilesAndCode": true,
+      "reloadCancel": true,
+      "keyboardPeak": 0.010989858768880367,
+      "samplePeak": 0.08500000834465027,
+      "timedExample": true,
+      "referenceRenderers": [
+        {
+          "filename": "generated-st.vgz",
+          "format": "vgm",
+          "peak": 0.031060872599482536,
+          "pausedFrame": 2381,
+          "pausedAudition": true
+        },
+        {
+          "filename": "generated-st.ym",
+          "format": "ym",
+          "peak": 0.26966437697410583,
+          "pausedFrame": 1675,
+          "pausedAudition": true
+        },
+        {
+          "filename": "generated-st.sndh",
+          "format": "sndh",
+          "peak": 0.2696618437767029,
+          "pausedFrame": 1675,
+          "pausedAudition": true
+        }
+      ],
+      "outputSwitchStopsSources": true,
+      "outputSwitchResetsPitch": true,
+      "outputSwitchBlocksKeysAndCode": true,
+      "nativeCapturePcm": true,
+      "nativeFailureFallback": true,
+      "oneAudioContext": true,
+      "mobileOverflow": 0,
+      "nativePackets": 7,
+      "nativePeak": 0.010989858768880367,
+      "nativeFinite": true,
+      "physicalOutputMuted": true,
+      "nativeHost": "mocked Tauri IPC; no CPAL device",
+      "pageErrors": [],
+      "missingAssets": [],
+      "expectedBlockedMonaco": [
+        "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "passed": true,
+      "toolbarUnique": true,
+      "pin": true,
+      "originalMenuPreserved": true,
+      "nativeCassetteSave": true,
+      "saveCancel": true,
+      "newProjectBackupCancelPreservesFilesAndCode": true,
+      "reloadCancel": true,
+      "keyboardPeak": 0.010989858768880367,
+      "samplePeak": 0.08500000834465027,
+      "timedExample": true,
+      "referenceRenderers": [
+        {
+          "filename": "generated-st.vgz",
+          "format": "vgm",
+          "peak": 0.031060872599482536,
+          "pausedFrame": 1087,
+          "pausedAudition": true
+        },
+        {
+          "filename": "generated-st.ym",
+          "format": "ym",
+          "peak": 0.26966437697410583,
+          "pausedFrame": 2028,
+          "pausedAudition": true
+        },
+        {
+          "filename": "generated-st.sndh",
+          "format": "sndh",
+          "peak": 0.2696618437767029,
+          "pausedFrame": 2146,
+          "pausedAudition": true
+        }
+      ],
+      "outputSwitchStopsSources": true,
+      "outputSwitchResetsPitch": true,
+      "outputSwitchBlocksKeysAndCode": true,
+      "nativeCapturePcm": true,
+      "nativeFailureFallback": true,
+      "oneAudioContext": true,
+      "mobileOverflow": 0,
+      "nativePackets": 8,
+      "nativePeak": 0.010989858768880367,
+      "nativeFinite": true,
+      "physicalOutputMuted": true,
+      "nativeHost": "mocked Tauri IPC; no CPAL device",
+      "pageErrors": [],
+      "missingAssets": [],
+      "expectedBlockedMonaco": [
+        "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"
+      ]
+    }
+  ]
+}

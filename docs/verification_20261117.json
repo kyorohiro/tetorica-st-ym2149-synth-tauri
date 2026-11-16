@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-17",
+  "version": "0.0.1",
+  "passed": true,
+  "importedFiles": 202,
+  "archiveSha256": "cd07d0e20ec65dbdab7d8fd611ba78fad7a23cc820a278156be5996efb5156d9",
+  "checks": {
+    "webNodePassed": 170,
+    "pythonPassed": 43,
+    "desktopNodePassed": 43,
+    "rustPassed": 24,
+    "rustDeviceTestsSkipped": 2,
+    "browsers": [
+      "chromium",
+      "webkit"
+    ],
+    "allImportedBytesEqualZip": true
+  },
+  "macApp": {
+    "path": "src-tauri/target/release/bundle/macos/Tetorica ST YM2149 Synth.app",
+    "bundleIdentifier": "net.tetorica.synth-st-ym2149",
+    "version": "0.0.1",
+    "executable": "tetorica-st-ym2149-synth-tauri",
+    "bytes": 11828480,
+    "sha256": "3931d3592e449e980af310a7cd034ae906bd1e48afe76eab13fbea810bc1d3bf",
+    "file": "w/tetorica-st-ym2149-synth-tauri/src-tauri/target/release/bundle/macos/Tetorica ST YM2149 Synth.app/Contents/MacOS/tetorica-st-ym2149-synth-tauri: Mach-O 64-bit executable arm64",
+    "developerIdSigned": false,
+    "notarized": false
+  },
+  "nativeUi": {
+    "opened": true,
+    "title": "Tetorica ST YM2149 Synth",
+    "singleMenuVisible": true,
+    "pinVisible": true,
+    "audioStatus": "Enable audio, then play the keyboard. Editing does not start audio.",
+    "audioStarted": false,
+    "scope": "Cold launch / UI observation only; final save-adapter revision separately rebuilt and browser-tested."
+  },
+  "sources": {
+    "package.json": "3279b3d507bc4944ee62ce519d6bcf0fc27ec756d5261d455c3d9e99ab3752e0",
+    "package-lock.json": "2e31d6d091c80fbdc602355d0512306cd4c0927ef77fd4b77d3b5e48a996b11d",
+    "src-tauri/Cargo.toml": "2ad86da5c00bf444f2dc494676104414b02f74687368d709fa4aa546e476d064",
+    "src-tauri/Cargo.lock": "1f804234a89c35ea220786496e958bfd1ded666bd21087cd311cd3f781dc91b8",
+    "src-tauri/tauri.conf.json": "7e0c58d301378fd68783abe3dddca283377358e91cd13b586c8303a4897ca595",
+    "src-tauri/src/main.rs": "983270dd6a11e9560e4905095b42cd3ec31d02ea34747ba141d15b303eabff1a",
+    "src-tauri/src/audio.rs": "1559efc4f157c5c360f3d232ef228dde812a1ba5595367fa220520dc901d76e1",
+    "desktop/desktop-interface.js": "0c88ca1124e93942a1e1b2fb96b0c1c70073ff894752cb7f0f612f6ae139c882",
+    "desktop/audio-interface.js": "4b46e7c2ef7c8b98ac2af2194444dd8e86f29cf674d11e5e21ae116891695f84",
+    "desktop/audio-worklet.js": "042ddb54aed4986d54968bc932a0879d3af8986b9f880700ba71b4d48c013f7c",
+    "scripts/import_release.py": "8f73adfa9f317a7be97fd1773bb635fefd6ba7a84e2c39f0765da238add708f4",
+    "scripts/check-desktop-browser.cjs": "5a70f1cde1813a92fc609b02ac46ba95ad123eea4d8ef12fe299fc83c4b69bac",
+    "release.lock.json": "5361dc41d4f51b4133d91577152116464e5b8d17889a1a931c51cfd3686a3ba9"
+  },
+  "notRun": [
+    "CPAL hardware audio and real-device listening",
+    "signed/notarized builds",
+    "hosted Actions jobs and installers on other platforms",
+    "commit/tag/push/publication"
+  ]
+}
