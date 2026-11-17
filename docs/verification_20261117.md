@@ -81,3 +81,50 @@ Windows and Linux are configured in CI but have not run remotely. Signed /
 notarized macOS app and DMG builds use the local `deploy_mac.sh`; no certificate
 is uploaded to hosted Actions. Repository publication and releases remain with
 the user.
+
+## Hosted Actions and release follow-up — 2026-11-17
+
+Read-only GitHub CLI / API checks confirmed that the repository was pushed and
+the hosted builds completed. This follow-up supersedes the remote-build and
+publication status in the initial local report above; it does not change that
+report's local build evidence or machine-readable JSON.
+
+- [Main run 43940597446](https://github.com/kyorohiro/tetorica-st-ym2149-synth-tauri/actions/runs/43940597446):
+  **completed / success**.
+- [v0.0.1 tag run 43940644828](https://github.com/kyorohiro/tetorica-st-ym2149-synth-tauri/actions/runs/43940644828):
+  **completed / success**.
+- Both runs use commit `6cd1aeeeed2fd24d2957e9ef8d38926bd3fcecb4`.
+  The browser job and all five native build jobs passed: macOS Apple Silicon,
+  macOS Intel, Windows x64, Linux x64 and Linux ARM64. Each native job passed
+  `npm test`, native PCM tests, committed asset verification, desktop build and
+  installer upload. The main-run browser test and report upload also passed.
+
+All six main-run artifacts, including the browser report, were present and
+unexpired. The five installer artifacts were downloaded to a temporary
+directory, and these seven installer files were confirmed nonempty. Sizes below
+are extracted file sizes from the main run, rather than artifact ZIP sizes or
+release-asset sizes.
+
+| Target | Installer | Bytes |
+| --- | --- | ---: |
+| macOS Apple Silicon | `Tetorica ST YM2149 Synth_0.0.1_aarch64.dmg` | 10,478,115 |
+| macOS Intel | `Tetorica ST YM2149 Synth_0.0.1_x64.dmg` | 10,558,418 |
+| Windows x64 | `Tetorica ST YM2149 Synth_0.0.1_x64-setup.exe` | 4,507,251 |
+| Linux x64 | `Tetorica ST YM2149 Synth_0.0.1_amd64.AppImage` | 81,410,552 |
+| Linux x64 | `Tetorica ST YM2149 Synth_0.0.1_amd64.deb` | 5,778,534 |
+| Linux ARM64 | `Tetorica ST YM2149 Synth_0.0.1_aarch64.AppImage` | 79,632,904 |
+| Linux ARM64 | `Tetorica ST YM2149 Synth_0.0.1_arm64.deb` | 5,710,740 |
+
+The [v0.0.1 release](https://github.com/kyorohiro/tetorica-st-ym2149-synth-tauri/releases/tag/v0.0.1)
+is public: the API reports `draft: false` and `prerelease: false`. Its asset
+inventory includes installers for all five native targets, the additional
+`Tetorica.ST.YM2149.Synth_0.0.1_aarch64_signed.dmg` and
+`Tetorica.ST.YM2149.Synth_0.0.1_x64_signed.dmg`, and the Web ZIP
+`tetorica_ym2149_st_synth_dev_itch_v0.0.1.zip`. The `_signed.dmg` filenames are
+observed inventory evidence; signatures and notarization were not independently
+verified in this follow-up.
+
+Actual installation and launch of the distribution packages, human listening,
+physical audio-device behavior, long-duration output and native UI interaction
+remain pending as listed in [the TODO](todo_20261117.md). This follow-up made no
+commit, push, tag or publication changes.
