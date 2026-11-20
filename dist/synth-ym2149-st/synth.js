@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: BSD-3-Clause
 import {createAudio} from './audio.js';
 import {createDefaultPreset, readPreset} from './preset.js';
-import {setupYmCodeHost} from './code_host.js?v=ym-sample-1';
+import {setupYmCodeHost} from './code_host.js?v=ym-code-instrument-fold-1';
 import {setupNumberControls} from './controls.js';
-import {createYmSongPlayer} from './song_player.js';
-import {prepareYmReference,createYmReferenceEngine} from './reference_source.js';
+import {createYmSongPlayer} from './song_player.js?v=live-edit-2';
+import {prepareYmReference,createYmReferenceEngine} from './reference_source.js?v=live-edit-2';
 import {setupYmSongPanel} from './song_panel.js';
-import {ymSongLiveView,captureYmSongVoice} from './song_live.js';
+import {ymSongLiveView,captureYmSongVoice,editYmSongSnapshot} from './song_live.js?v=live-edit-2';
 import {setupSynthMenu} from '../synth/synth_menu.js';
+import {setupSynthExpandedTabs} from '../synth/synth_expanded_tabs.js?v=huc-code-workspace-1';
 import {createSpuOutputVisualizer} from '../synth-spu/spu_synth_visualizer.js';
 import {createFretboardState, createFretboardLayout, renderFretboardControls,
   buildKeyboard, setInstrument, setFretPosition, setStringWindowIndex} from '../synth/synth_keyboard.js';
@@ -16,11 +17,11 @@ const $ = id => document.getElementById(id);
 const localDesktop=window.top===window && typeof window.__TAURI_INTERNALS__?.invoke==='function' &&
   ((location.protocol==='tauri:' && location.hostname==='localhost') ||
   (['http:','https:'].includes(location.protocol) && location.hostname==='tauri.localhost'));
-let audio = null, opening = null, disposed = false, codeHost = null;
+let audio = null, opening = null, disposed = false, codeHost = null, expandedTabs = null;
 let switchingAudioOutput = false;
 let preset = createDefaultPreset(), target = null, pitch = 0, octave = 0;
 let serial = 0, revision = 0, renderFrame = null;
-let songPlayer=null,songPanel=null,audition=null;
+let songPlayer=null,songPanel=null,audition=null,pausedEdit=null;
 let songState={playing:false,paused:false,busy:false,liveEnabled:true,liveState:null};
 const held = new Map();
 const status = (message, error=false) => {
@@ -40,9 +41,26 @@ const resize = new ResizeObserver(() => {
 resize.observe($('outputCanvas').parentElement);
 
 function getSettings() {return readPreset(audition?.original ?? audio?.instrument.getPreset() ?? preset);}
+function referenceSnapshot() {return pausedEdit?.source===songState.liveState?pausedEdit.snapshot:songState.liveState;}
 function referenceView() {
   if(target===null||!songState.liveEnabled||!songState.liveState||!songState.playing&&!songState.paused)return null;
-  return ymSongLiveView(songState.liveState,target);
+  return ymSongLiveView(referenceSnapshot(),target);
+}
+function editPausedReference(patch) {
+  const view=referenceView();
+  if(view&&songState.playing&&songState.canEdit)return songPlayer.editChannel(target,patch);
+  if(!view||!songState.paused||songState.busy)return false;
+  const snapshot=editYmSongSnapshot(referenceSnapshot(),target,patch);
+  pausedEdit={source:songState.liveState,snapshot};
+  if(audition) {
+    const voice={...patch.voice},ratio=2000000/view.clock;
+    const period=(value,max)=>value===0&&ratio===1?0:Math.max(0,Math.min(max,Math.round(Math.max(1,value)*ratio)));
+    if(Object.hasOwn(voice,'period'))voice.period=period(voice.period,4095);
+    if(Object.keys(voice).length)audio.instrument.setVoice(voice);
+    if(patch.noisePeriod!==undefined)audio.instrument.setNoisePeriod(period(patch.noisePeriod,31));
+    if(patch.envelope){const envelope={...patch.envelope};if(envelope.period!==undefined)envelope.period=period(envelope.period,65535);audio.instrument.setEnvelope(envelope);}
+  }
+  render();return true;
 }
 function restoreAudition() {
   if(!audition)return;
@@ -66,7 +84,8 @@ function render() {
   if(audio) {const state=audio.instrument.read(); if(!audition)preset=state.preset; target=state.selectedChannel; pitch=state.pitch;}
   const live=referenceView(),shown=live?.preset??preset,voice=shown.voices[target ?? 0];
   $('ymSynthMain').dataset.referenceView=String(Boolean(live));
-  for(const id of ['toneEnabled','noiseEnabled','envelopeEnabled','tonePeriod','fixedVolume','noisePeriod','envelopePeriod','envelopeShape','retriggerEnvelope','presetName','savePreset'])$(id).disabled=Boolean(live);
+  for(const id of ['toneEnabled','noiseEnabled','envelopeEnabled','tonePeriod','fixedVolume','noisePeriod','envelopePeriod','envelopeShape','retriggerEnvelope'])$(id).disabled=Boolean(live&&(!songState.paused&&!songState.canEdit||songState.busy));
+  for(const id of ['presetName','savePreset'])$(id).disabled=Boolean(live);
   $('ymSongCapture').disabled=!songState.paused||songState.busy||!live?.canCapture;
   $('ymSongCapture').title=live?.reason||(!songState.paused?'Pause to capture the selected reference channel':'');
   const name=$('presetName');
@@ -84,7 +103,7 @@ function render() {
   }
   $('voiceFrequency').textContent=`${((live?.clock??2000000)/(16*Math.max(1,voice.period))).toFixed(2)} Hz`;
   $('channelStatus').textContent=live
-    ? `${songState.paused?'Paused · C4 auditions recorded pitch':'Live · Pause to audition'} · ${live.description}${live.reason?' · '+live.reason:''}`
+    ? `${songState.paused?'Paused · editable audition · C4 plays this pitch; Resume returns to the song':songState.canEdit?'Live · direct editing; later song writes may replace edits':'Live · Pause to audition'} · ${live.description}${live.reason?' · '+live.reason:''}`
     : target===null
     ? 'Auto · keyboard uses CH1–CH3 in turn. Edits affect all three; selecting Auto keeps their current settings.'
     : `CH${target+1} · display, controls and keyboard address this physical voice.`;
@@ -143,12 +162,14 @@ function applySettings(value) {
   changed();
 }
 function editVoice(patch) {
+  if(editPausedReference({voice:patch}))return;
   if(referenceView())return;
   if(audio) audio.instrument.setVoice(patch);
   else {for(let i=0;i<3;i++) if(target===null || i===target) Object.assign(preset.voices[i],patch);}
   changed();
 }
 function editShared(kind,value) {
+  if(editPausedReference(kind==='noise'?{noisePeriod:value}:{envelope:value}))return;
   if(referenceView())return;
   if(kind==='noise') {
     if(audio) audio.instrument.setNoisePeriod(value); else preset.noisePeriod=value;
@@ -200,12 +221,19 @@ for(const button of document.querySelectorAll('[data-channel]')) {
     event.preventDefault(); event.stopPropagation(); buttons[next].click(); buttons[next].focus();
   });
 }
-for(const button of document.querySelectorAll('[data-chip-tab]')) button.addEventListener('click',()=>{
+const chipTabs=[...document.querySelectorAll('[data-chip-tab]')];
+function selectChip(button){
+  if(disposed||!chipTabs.includes(button))return false;
   const selected=button.dataset.chipTab;
-  for(const tab of document.querySelectorAll('[data-chip-tab]')) {
+  for(const tab of chipTabs) {
     const on=tab===button;tab.setAttribute('aria-selected',String(on));tab.tabIndex=on?0:-1;
   }
   $('ymChipPanel').hidden=selected!=='ym2149';$('ymMixerPanel').hidden=selected!=='mixer';
+  expandedTabs?.showChip(button);requestRender();return true;
+}
+for(const button of chipTabs) button.addEventListener('click',()=>{
+  selectChip(button);
+  if(codeHost?.controls.isExpanded())button.focus();else button.blur();
 });
 for(const button of document.querySelectorAll('[data-visual-mode]')) button.addEventListener('click',()=>{
   visualMode=button.dataset.visualMode;
@@ -250,7 +278,7 @@ function press(source,entry) {
   const view=referenceView();
   if(view&&songState.playing){status('Pause the reference song to audition the selected channel.');return;}
   if(view&&!view.canAudition){status(view.reason);return;}
-  const snapshot=view?songState.liveState:null,frame=songState.positionFrames,channel=target;
+  const snapshot=view?referenceSnapshot():null,frame=songState.positionFrames,channel=target;
   const note={id:`ym-key:${++serial}`,midi:entry.midi,key:entry.key,started:false}; held.set(source,note); activity();
   void ensureAudio().then(engine=>{
     if(disposed || held.get(source)!==note) return;
@@ -296,6 +324,8 @@ document.addEventListener('pointerup',event=>{if(event.target.matches('input[typ
 codeHost=setupYmCodeHost({ensureAudio:ensurePerformanceAudio,getAudio:()=>audio,getSettings,applySettings,stopKeyboard,
   downloadFile:localDesktop && typeof window.tetoricaSynthSave==='function' ? window.tetoricaSynthSave : undefined,
   stopSong:()=>{stopKeyboard();songPlayer?.stop();},onActivity:requestRender,setStatus:status,
+  onViewChange:mode=>{expandedTabs?.showInput(mode);requestRender();},
+  onExpandedChange:value=>{expandedTabs?.setExpanded(value);requestRender();},
   onBeforeNewProject({isCurrent=()=>true}={}) {
     if(!isCurrent())return false;
     songPanel?.reset();stopKeyboard();audio?.stop();
@@ -303,12 +333,16 @@ codeHost=setupYmCodeHost({ensureAudio:ensurePerformanceAudio,getAudio:()=>audio,
     audio?.instrument.selectChannel(null);audio?.instrument.setPitch(0);
     renderKeyboard();render();
   }});
+expandedTabs=setupSynthExpandedTabs({codeControls:codeHost.controls,selectChip,
+  elements:{editor:$('ymSynthEditor'),chipTabs,volume:$('masterVolume').closest('.master-control')},
+  getChipView:button=>button.dataset.chipTab});
 songPlayer=createYmSongPlayer({getAudio:()=>audio,prepareSource:prepareYmReference,createEngine:createYmReferenceEngine,
   beforePlay:async()=>{
     stopKeyboard();await codeHost.stop();await ensurePerformanceAudio();audio.stop();
     if(target===null){target=0;audio.instrument.selectChannel(target);}
   },
   onState(state) {
+    if(!state.paused||!state.liveEnabled||state.busy||state.liveState!==songState.liveState||state.positionFrames!==songState.positionFrames)pausedEdit=null;
     songState=state;
     if(audition&&(!state.paused||state.busy||state.positionFrames!==audition.frame||!state.liveEnabled))stopKeyboard();
     songPanel?.update(state);requestRender();
@@ -317,7 +351,7 @@ songPanel=setupYmSongPanel({project:codeHost.project,files:codeHost.files,player
 listen('ymSongCapture','click',async()=>{
   const view=referenceView();if(!songState.paused||songState.busy||!view?.canCapture)return;
   const frame=songState.positionFrames,channel=target;
-  const sound=captureYmSongVoice(songState.liveState,channel,{name:`${songState.metadata?.title||songState.name} CH${channel+1}`});
+  const sound=captureYmSongVoice(referenceSnapshot(),channel,{name:`${songState.metadata?.title||songState.name} CH${channel+1}`});
   let applied=false;
   await codeHost.files.saveCapturedSound(sound,{
     isCurrent:()=>!disposed&&songState.paused&&!songState.busy&&songState.positionFrames===frame&&(applied||target===channel),
@@ -327,7 +361,7 @@ listen('ymSongCapture','click',async()=>{
 void codeHost.ready.catch(report);
 renderKeyboard();render();
 window.addEventListener('pagehide',()=>{
-  disposed=true;stopKeyboard();songPanel.dispose();songPlayer.dispose();resize.disconnect();visualizer.dispose();numbers.dispose();
+  expandedTabs?.dispose();disposed=true;stopKeyboard();songPanel.dispose();songPlayer.dispose();resize.disconnect();visualizer.dispose();numbers.dispose();
   if(renderFrame!==null)cancelAnimationFrame(renderFrame);
   void codeHost.dispose().finally(()=>audio?.dispose()).catch(()=>{});
 },{once:true});

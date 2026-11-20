@@ -39,6 +39,26 @@ performance tools.
 
 ## JavaScript and Files
 
+The **Code / Synth** buttons beside Files select the workspace layout.
+**Code** opens the existing editor beside Files, with a combined
+**Code / YM2149 / Mixer / Keyboard** tab row. Changing tabs retains expansion;
+**Synth** or Restore returns to the normal layout. These actions do not Run
+or Apply source, stop playback or cancel named register reservations.
+
+The same Master slider and Run / Apply / Stop controls remain available in
+every expanded view. No second editor, audio context or output gain is created.
+The Song selector and reference Play / Pause / Stop also remain available in
+Code and Keyboard views. Click **Reference playback** to fold or expand the
+panel without changing playback. It starts expanded. Code and reference playback
+keep their existing exclusion: starting one stops the other, independently of
+the displayed tab.
+Reference playback sits above the Files and workspace columns. In expanded
+view, Master shares this upper area so the Files heading and workspace tabs
+start at the same height on desktop.
+Selected files and editor models stay attached while the controls move between
+their normal and expanded positions. Keyboard navigation of expanded tabs uses
+arrows, Home and End; computer keys still play outside text fields.
+
 **Keyboard / Code** switch views without stopping Code. Manual controls and
 keyboard notes stay available during a performance; writes to the same channel
 or shared generator can replace one another. Click outside a text field or
@@ -65,10 +85,24 @@ running. **Stop all sound** is the main performance stop.
 
 **Files** holds JavaScript, local modules, text and readable preset JSON.
 **Save sound** keeps an instrument in `/presets/`; selecting a valid preset
-loads its settings. Import and export files or **Cassette** projects from the
+from **Instrument** loads its settings without changing the workspace tab or
+opening its JSON in Code. Choose a file in **Files** to edit its contents.
+Import and export files or **Cassette** projects from the
 menu. Local project storage keeps drafts on this browser; export a Cassette
 for a portable copy. Restoring a project does not execute its code. Master,
 octave and transient playback state are host preferences.
+
+While a reference song is paused, select CH1–CH3 to edit its Tone, Noise,
+hardware envelope, periods and level for keyboard audition. Noise and envelope
+generators are shared. These temporary settings survive key release and channel
+selection; Capture to Synth saves the edited sound. Resume, seek or Stop clears
+them and resumes the original reference program without changing the saved Synth.
+
+During **VGM / SNDH / YM** playback these hardware controls edit the selected channel in
+the reference renderer directly. Writes reach the next render block after the
+short audio lookahead already queued for playback. Later song writes can replace
+them; shared Noise/Envelope affect all three channels. Code running on the Synth
+also permits manual controls, with the same last-write-wins behavior.
 
 ### Try the Sync-buzzer example
 
@@ -102,6 +136,31 @@ descent. This demonstrates hardware envelope behavior driven by host scheduling;
 it does not emulate Atari ST CPU / MFP timer timing. See the
 [Yamaha YM2149 datasheet](https://ftpmirror.your.org/pub/misc/bitsavers/components/yamaha/YM2149_199209.pdf)
 and [the included envelope implementation](https://github.com/kyorohiro/hello_ymfm_wasm/blob/main/third_party/mame-ay8910/ay8910.h).
+
+### Play a melody using only the Envelope
+
+Choose **`examples/envelope-melody.js`** in Files, switch to Code and Run.
+CH1 Tone and Noise are both off. Periodic R13 writes restart the shared
+hardware Envelope at the note frequency: E3 is about 164.814 Hz, A3 is 220 Hz.
+No Tone-frequency writes are needed. The ordinary Tone pitch control does not
+transpose this melody; edit `notes` in Code instead.
+
+Shape 9 descends once and holds zero. A shorter Envelope Period finishes the
+descent sooner; it does not repeat another ramp without a new R13 write.
+Select **CH1** and try **Envelope period** 30, 100 or 200 while Code runs.
+The reservation writes R13 only, so it preserves live Period changes to
+R11/R12. **Apply** reruns the setup and restores its Period.
+
+The software retrigger frequency sets the repetition pitch; the hardware
+Period changes the waveform between retriggers. `setBpm()` changes note/rest
+lengths without transposing the notes. Each note has a compact reservation;
+release cancels it before Key Off. **Stop** or removing `envelope-melody` on
+Apply also silences CH1. Console shows the R13 write and note / target Hz;
+Waveform and Spectrum show the result.
+
+Envelope remains shared by every Envelope-enabled channel. Manual writes
+compete in application order. Timing is rounded to output samples; this is a
+software-retriggered experiment, not Atari ST CPU / MFP cycle emulation.
 
 ### Try fixed-volume modulation
 
@@ -254,8 +313,9 @@ player and visualizer share one AudioContext and post-Master output.
 
 **Auto update** is on by default. Select **CH1–CH3** to see the heard song's
 tone/noise gates, period, volume and shared envelope in the existing controls.
-These reference fields are read-only. Select **Auto**, or turn Auto update off,
-to return to the editable Synth. **Code and reference playback are exclusive**:
+These hardware fields directly edit the playing reference channel; the song
+can overwrite them later. During Pause they edit a temporary keyboard audition.
+Select **Auto**, or turn Auto update off, to return to the editable Synth. **Code and reference playback are exclusive**:
 starting either stops the other.
 
 While paused, the keyboard auditions a sounding selected channel without
